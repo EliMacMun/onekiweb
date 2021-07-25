@@ -67,14 +67,16 @@ $colors: (
 // scss-docs-end colors-map
 
 // scss-docs-start theme-color-variables
-$primary:       $blue !default;
+$primary:       #f89dfa !default;
+// $primary:       $blue !default;
 $secondary:     $gray-600 !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
 $light:         $gray-100 !default;
-$dark:          $gray-900 !default;
+// $dark:          $gray-900 !default;
+$dark:          #0a0a11 !default;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map

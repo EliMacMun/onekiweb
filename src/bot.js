@@ -10,8 +10,6 @@ fetch('https://discord.com/api/users/@me', {
         authorization: `Bot ${process.env.TOKEN_DISCORD}`,
     },
 }).then(result => result.json()).then(response => {
-    const { username, discriminator } = response;
-    console.log(response);
     client.usuario = response;
 })
 
