@@ -11,9 +11,8 @@ passport.deserializeUser((obj, done) => {
 
 passport.use(new Strategy({
     clientID: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-    // callbackURL: "https://oneki.herokuapp.com/login",
-    callbackURL: "http://localhost:3000/login",
+    clientSecret: process.env.CLIENT_SECRET,    
+    callbackURL: process.env.REDIRECT_URL,
     scope: ["identify"]
 }, (accestoken, refreshtoken, profile, cb) => {
     process.nextTick(() => {

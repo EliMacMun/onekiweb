@@ -5,6 +5,7 @@ const path = require("path");
 const morgan = require("morgan");
 const passport = require("./passport");
 const session = require("express-session");
+const flash = require("connect-flash");
 
 //settings
 app.set("port", process.env.PORT || 3000);
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.listen(app.get("port"), () => {
     console.log(`listen on port ${app.get("port")}`);
 });
+app.use(flash());
 app.use(
     session({
         secret: "logindiscord",

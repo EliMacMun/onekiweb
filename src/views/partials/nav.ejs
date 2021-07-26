@@ -18,9 +18,13 @@
                 </li>
             </ul>
             <span class="navbar-text"> 
-                <a href="/login">Iniciar Sesion</a> 
+                <% if(user) { %> 
+                    <span>Sesion Iniciada</span> 
+                <% } else { %> 
+                    <a href="/login">Iniciar Sesion</a>
+                <% } %> 
                 <a class="navbar-brand" href="#">
-                    <img src=<%-`${userbot?`"https://cdn.discordapp.com/avatars/${userbot.id}/${userbot.avatar}.webp?size=256"`:''}`%> id="avatarbot" class=<%-`"rounded-circle ${userbot?'':'ld'}"`%> alt="" width="40" height="40">
+                    <img src=<%-`${user?`"https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.webp?size=256"`:userbot?`"https://cdn.discordapp.com/avatars/${userbot.id}/${userbot.avatar}.webp?size=256"`:''}`%> id="avatarbot" class=<%-`"rounded-circle ${userbot?'':'ld'}"`%> alt="" width="40" height="40">
                 </a>
             </span>
         </div>

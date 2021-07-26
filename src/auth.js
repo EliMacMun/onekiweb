@@ -1,4 +1,5 @@
 module.exports = (req, res, next) => {
+    console.log(req.route.path);
     if(req.isAuthenticated()){
         return next();
     } else {

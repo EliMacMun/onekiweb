@@ -1,15 +1,17 @@
 const { Router } = require('express');
 const router = Router();
 const passport = require("../passport");
+const auth = require("../auth");
 
 const bot = require('../bot');
 
 router.get('/', async (req, res, next) => {
-    console.log(req.user);
+    // console.log(req.user);
     res.render('index', {
         title: 'Oneki Bot',
         active: 'inicio',
-        userbot: bot.user
+        userbot: bot.user,
+        user: req.user
     });
 });
 
