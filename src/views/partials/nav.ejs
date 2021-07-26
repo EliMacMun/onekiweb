@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#"><%-bot.username + ' Bot'%></a>
+        <a href="/" class=<%-`"navbar-brand ${userbot?'':'ld'}"`%> id="namebot" href="#"><%-userbot? userbot.username + ' Bot' : ''%></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,18 +8,25 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    <a class="nav-link <%-active=='inicio'?'active':''%>" href="/">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Comandos</a>
+                    <a class="nav-link <%-active=='comandos'?'active':''%>" href="/commands">Comandos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Soporte</a>
+                    <a class="nav-link <%-active=='soporte'?'active':''%>" href="/support">Soporte</a>
                 </li>
             </ul>
-            <span class="navbar-text"> <a href="">Iniciar Sesion</a> <a class="navbar-brand" href="#">
-                <img src=<%-`"https://cdn.discordapp.com/avatars/${bot.id}/${bot.avatar}.webp?size=256"`%> class="rounded-circle" alt="" width="40" height="40">
-              </a> </span>
+            <span class="navbar-text"> 
+                <a href="/login">Iniciar Sesion</a> 
+                <a class="navbar-brand" href="#">
+                    <img src=<%-`${userbot?`"https://cdn.discordapp.com/avatars/${userbot.id}/${userbot.avatar}.webp?size=256"`:''}`%> id="avatarbot" class=<%-`"rounded-circle ${userbot?'':'ld'}"`%> alt="" width="40" height="40">
+                </a>
+            </span>
         </div>
     </div>
 </nav>
+<script>
+    if(document.getElementById('namebot').classList.contains('ld'))fetch(`${window.location.protocol}//${window.location.host}/api`).then(r=>r.json()).then(u=>{document.getElementById('namebot').innerHTML=u.username});
+    if(document.getElementById('avatarbot').classList.contains('ld')) fetch(`${window.location.protocol}//${window.location.host}/api`).then(r=>r.json()).then(u=>{document.getElementById('avatarbot').href=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.webp?size=256`});
+</script>

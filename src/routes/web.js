@@ -1,13 +1,24 @@
 const { Router } = require('express');
 const router = Router();
+const passport = require("../passport");
 
 const bot = require('../bot');
 
 router.get('/', async (req, res, next) => {
+    console.log(req.user);
     res.render('index', {
         title: 'Oneki Bot',
-        bot: bot.user??bot.usuario
+        active: 'inicio',
+        userbot: bot.user
     });
 });
+
+router.get('/login', passport.authenticate("discord", { failureRedirect: "/" }), async (req, res) => {
+    res.redirect(req.flash('redi')[0]??"/");
+});
+
+router.get('/invite', (req, res) => {
+    res.redirect('https://discord.com/api/oauth2/authorize?client_id=858903483004354560&permissions=8&scope=bot%20applications.commands')
+})
 
 module.exports = router;

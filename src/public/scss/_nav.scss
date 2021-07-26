@@ -23,7 +23,8 @@
   &:hover,
   &:focus {
     color: $nav-link-hover-color;
-    text-decoration: if($link-hover-decoration == underline, none, null);
+    // text-decoration: if($link-hover-decoration == underline, none, null);
+    text-decoration: underline;
   }
 
   // Disabled state lightens text
