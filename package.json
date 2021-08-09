@@ -39,6 +39,6 @@
   },
   "homepage": "https://github.com/EliMacMun/onekiweb#readme",
   "engines": {
-    "node": "14.17.0"
+    "node": "16.6.1"
   }
 }
