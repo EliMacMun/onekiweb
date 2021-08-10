@@ -1,0 +1,38 @@
+[
+    {
+        "name": "ping",
+        "description": "pong!",
+        "category": "extra",
+        "alias": [],
+        "user_permisions": [],
+        "bot_permisions": [],
+        "use": "ping",
+        "example": "ping"
+    },
+    {
+        "name": "ban",
+        "description": "ban users",
+        "category": "moderation",
+        "alias": [],
+        "user_permisions": [
+            "BAN_MEMBERS"
+        ],
+        "bot_permisions": [
+            "BAN_MEMBERS"
+        ],
+        "use": "ban [@user] <reazon>",
+        "example": "ban @mee6 is not required"
+    },
+    {
+        "name": "ss",
+        "description": "take a fake screenshot",
+        "category": "entertainment",
+        "alias": [
+            "screenshot"
+        ],
+        "user_permisions": [],
+        "bot_permisions": [],
+        "use": "ss <user> [text]",
+        "example": "ss @mee6 i'm a joke"
+    }
+]
