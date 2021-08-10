@@ -40,3 +40,4 @@ app.use(passport.session());
 //routes
 app.use("/", require("./routes/web"));
 app.use("/api", require("./routes/api"));
+console.log('************************\n', process.env, '\n************************');

@@ -47,7 +47,7 @@
 </nav>
 <script>
     window.onload = () => {
-        fetch(`${window.location.protocol}//${window.location.host}/api`).then(r=>r.json()).then(u=>{
+        fetch(`${window.location.protocol}//${window.location.host}/api/bot/user`).then(r=>r.json()).then(u=>{
             for (const i of document.getElementsByClassName('namebot')) i.innerHTML = u.username + ' Bot';
             if(document.getElementById('pfpavatar').src.endsWith('bot')) document.getElementById('pfpavatar').src=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.webp?size=256`;
             for (const i of document.getElementsByClassName('avatarbot')) i.src=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.webp?size=1024`;
