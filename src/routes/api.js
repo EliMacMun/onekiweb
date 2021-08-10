@@ -23,3 +23,13 @@ router.get('/:lang/cmd/:category', (req, res) => {
     else res.json(cmd.filter(c=>c.category==category));
 });
 
+router.get('/:lang/cmd/', (req, res) => {
+    const { lang } = req.params;
+    const { command } = req.query;
+    const cmd = require(`../lang/${lang}/cmd.json`)
+    if (!cmd) res.status(404).send('language not found');
+    else if (command) {
+        if (!cmd.find(c=>c.name==command||c.alias.includes(command))) res.status(404).send('command not found');
+        else res.json(cmd.find(c=>c.name==command||c.alias.includes(command)))
+    } else res.json(cmd);
+});
