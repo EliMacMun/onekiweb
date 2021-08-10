@@ -14,11 +14,16 @@ router.get('/bot/user', async (req, res) => {
 
 router.get('/:lang/cmd/:category', (req, res) => {
     const { lang, category } = req.params;
-    const cmd = require(`../lang/${lang}/cmd.json`)
+    let cmd;
+    try {
+        cmd = require(`../lang/${lang}/cmd.json`);
+    } catch (error) {
+        console.log(`${error}`);
+        res.status(404).send('language not found');
+    }
     console.log(cmd.map(c=>c.category).filter((e,i,a)=>a.indexOf(e)==i));
     if (category=='categories') res.json(cmd.map(c=>c.category).filter((e,i,a)=>a.indexOf(e)==i));
     else if (category=='all') res.json(cmd);
-    else if (!cmd) res.status(404).send('language not found');
     else if (!cmd.filter(c=>c.category==category)) res.status(404).send('category not found');
     else res.json(cmd.filter(c=>c.category==category));
 });
@@ -26,9 +31,14 @@ router.get('/:lang/cmd/:category', (req, res) => {
 router.get('/:lang/cmd/', (req, res) => {
     const { lang } = req.params;
     const { command } = req.query;
-    const cmd = require(`../lang/${lang}/cmd.json`)
-    if (!cmd) res.status(404).send('language not found');
-    else if (command) {
+    let cmd;
+    try {
+        cmd = require(`../lang/${lang}/cmd.json`);
+    } catch (error) {
+        console.log(`${error}`);
+        res.status(404).send('language not found');
+    }
+    if (command) {
         if (!cmd.find(c=>c.name==command||c.alias.includes(command))) res.status(404).send('command not found');
         else res.json(cmd.find(c=>c.name==command||c.alias.includes(command)))
     } else res.json(cmd);
