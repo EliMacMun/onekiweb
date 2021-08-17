@@ -42,3 +42,17 @@ router.get('/:lang/cmd/', (req, res) => {
         else res.json(cmd.find(c=>c.name==command||c.alias.includes(command)))
     } else res.json(cmd);
 });
+
+router.get("/fakeDiscordMessage", async (req, res) => {
+    res.render('fakeDiscordMessage', {
+        layout: false,
+        UserColor: req.query.color ? `#${req.query.color}` : "#b9bbbe",
+        AvatarUrl: req.query.avatar ?? "https://preview.redd.it/nx4jf8ry1fy51.gif?format=png8&s=a5d51e9aa6b4776ca94ebe30c9bb7a5aaaa265a6",
+        UserName: req.query.user ?? "user",
+        Text: req.query.text ?? "",
+        Bot: req.query.bot == '1',
+        Verified: req.query.verified == '1' && req.query.bot == '1',
+        Time: `hoy a las ${format24(new Date().getHours())}:${format24(new Date().getMinutes())}`
+    });
+});
+

@@ -6,6 +6,12 @@ const morgan = require("morgan");
 const passport = require("./passport");
 const session = require("express-session");
 const flash = require("connect-flash");
+const admin = require("firebase-admin");
+admin.initializeApp({
+    credential: admin.credential.cert(require("../firebase-key.json")),
+    databaseURL: 'https://neoarmy-18011.firebaseio.com'
+});
+// const db = admin.database();
 
 //settings
 app.set("port", process.env.PORT || 3000);
