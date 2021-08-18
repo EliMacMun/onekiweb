@@ -24,6 +24,18 @@
         "type": "command"
     },
     {
+        "name": "ytt",
+        "description": "Generate a YouTube room",
+        "category": "Entertainment",
+        "alias": ["youtubetogether", "youtube-together"],
+        "user_permisions": [],
+        "bot_permisions": [],
+        "use": "ytt",
+        "example": "ytt",
+        "module": "js",
+        "type": "command"
+    },
+    {
         "name": "chess",
         "description": "Generate a Chess game",
         "category": "Entertainment",
