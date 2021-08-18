@@ -1,7 +1,7 @@
 [
     {
         "name": "ahorcado",
-        "description": "Generate a simple hangman game. You have 30 seconds to respond, the counter is reset with each attempt, the symbols and words are ignored, the \"ñ\" are replaced by \"n\", you can play with someone if you mention it in the command",
+        "description": "Generate a simple hangman game. The symbols and words are ignored, the \"ñ\" are replaced by \"n\", you can play with someone if you mention it in the command",
         "category": "Entertainment",
         "alias": [],
         "user_permisions": [],
@@ -18,8 +18,20 @@
         "alias": ["betrayal.io"],
         "user_permisions": [],
         "bot_permisions": [],
-        "use": "bio [#!channel]",
-        "example": "bio #!voice",
+        "use": "bio",
+        "example": "bio",
+        "module": "js",
+        "type": "command"
+    },
+    {
+        "name": "chess",
+        "description": "Generate a Chess game",
+        "category": "Entertainment",
+        "alias": [],
+        "user_permisions": [],
+        "bot_permisions": [],
+        "use": "chess",
+        "example": "chess",
         "module": "js",
         "type": "command"
     },
@@ -54,8 +66,8 @@
         "alias": ["fishing.io"],
         "user_permisions": [],
         "bot_permisions": [],
-        "use": "fio [#!channel]",
-        "example": "fio #!voice",
+        "use": "fio",
+        "example": "fio",
         "module": "js",
         "type": "command"
     },
@@ -78,8 +90,8 @@
         "alias": ["pokernight", "poker-night"],
         "user_permisions": [],
         "bot_permisions": [],
-        "use": "pkn [#!channel]",
-        "example": "pkn #!voice",
+        "use": "pkn",
+        "example": "pkn",
         "module": "js",
         "type": "command"
     },
