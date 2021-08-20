@@ -5007,7 +5007,7 @@ h6.title-3KTIjF {
 
 @font-face {
     font-family: 'Pragmatica Medium';
-    src: url(./styles/PragmaticaMedium.otf);
+    src: url(./styles/PragmaticaMedium.otf) format("opentype");
   }
 
 a,
