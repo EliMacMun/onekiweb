@@ -5004,6 +5004,12 @@ h6.title-3KTIjF {
 .theme-light .art-RyCKMR {
     background-image: url(/assets/baf3bb2ef44dd152825ced96e0c8ae3e.svg);
 }
+
+@font-face {
+    font-family: 'Whitney Semibold Regular';
+    src: url(./styles/whitneysemibold.woff);
+  }
+
 a,
 abbr,
 acronym,
