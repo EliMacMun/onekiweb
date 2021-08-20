@@ -47,16 +47,26 @@ router.get('/:lang/cmd/', (req, res) => {
 });
 
 router.get("/fakeDiscordMessage", async (req, res) => {
+    // console.log(req.query);
+    let text = req.query.text ?? "";
+    if (req.query.mentions) {
+        const mentions = JSON.parse(req.query.mentions)
+        for (const match of text.match(/<@!?\d{17,19}>/g)) {
+            text = text.replace(match, `<span class="mention wrapper-3WhCwL mention interactive" aria-controls="popout_1112" aria-expanded="false" tabindex="0" role="button">@${mentions[match.match(/\d{17,19}/g)[0]]}</span>`);
+            console.log(match, match.match(/\d{17,19}/g)[0], mentions[match.match(/\d{17,19}/g)[0]], text);
+        }
+    }
     res.render('fakeDiscordMessage', {
         layout: false,
         UserColor: req.query.color ? `#${req.query.color}` : "#b9bbbe",
         AvatarUrl: req.query.avatar ?? "https://preview.redd.it/nx4jf8ry1fy51.gif?format=png8&s=a5d51e9aa6b4776ca94ebe30c9bb7a5aaaa265a6",
         UserName: req.query.user ?? "user",
-        Text: req.query.text ?? "",
+        Text: text ,
         Bot: req.query.bot == '1',
         Verified: req.query.verified == '1' && req.query.bot == '1',
         Time: `hoy a las ${format24(new Date().getHours())}:${format24(new Date().getMinutes())}`
     });
+    // ` `
 });
 
 router.post("/ban", async (req, res) => {
