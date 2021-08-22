@@ -44,28 +44,29 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //socket
-// const { Server } = require('ws');
-// const wss = new Server({ server });
-// wss.on('connection', (ws) => {
-//     console.log('Client connected');
-//     ws.on('message', (msg) => {
-//         wss.clients.forEach((client) => {
-//             console.log(client);
-//             client.send(msg);
-//         });
-//     })
-//     ws.on('close', () => console.log('Client disconnected'));
-// });
-const socketIO = require('socket.io')
-const io = socketIO(server);
-io.on('connection', (socket) => {
+const { Server } = require('ws');
+const wss = new Server({ server });
+wss.on('connection', (ws) => {
     console.log('Client connected');
-    socket.onAny((event, ...args) => {
-        console.log(event, args);
-        io.emit(event, args);
-      });
-    socket.on('disconnect', () => console.log('Client disconnected'));
+    ws.on('message', (msg) => {
+        wss.clients.forEach((client) => {
+            console.log(client);
+            
+            // client.send(msg);
+        });
+    })
+    ws.on('close', () => console.log('Client disconnected'));
 });
+// const socketIO = require('socket.io')
+// const io = socketIO(server);
+// io.on('connection', (socket) => {
+//     console.log('Client connected');
+//     socket.onAny((event, ...args) => {
+//         console.log(event, args);
+//         io.emit(event, args);
+//       });
+//     socket.on('disconnect', () => console.log('Client disconnected'));
+// });
 
 
 //routes
