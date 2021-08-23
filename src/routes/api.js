@@ -48,7 +48,7 @@ router.get('/:lang/cmd/', (req, res) => {
 
 router.get("/fakeDiscordMessage", async (req, res) => {
     console.log(req.query);
-    let text = req.query.text ?? "";
+    let text = (req.query.text ?? "");
     if (req.query.mentions) {
         const mentions = JSON.parse(req.query.mentions)
         for (const match of text.match(/<@!?\d{17,19}>/g)??[]) {
@@ -61,7 +61,7 @@ router.get("/fakeDiscordMessage", async (req, res) => {
         UserColor: req.query.color ? `#${req.query.color}` : "#b9bbbe",
         AvatarUrl: req.query.avatar ?? "https://preview.redd.it/nx4jf8ry1fy51.gif?format=png8&s=a5d51e9aa6b4776ca94ebe30c9bb7a5aaaa265a6",
         UserName: req.query.user ?? "user",
-        Text: text ,
+        Text: text.remplace(/</gi,'&#60;').remplace(/>/gi,'&#62;'),
         Bot: req.query.bot == '1',
         Verified: req.query.verified == '1' && req.query.bot == '1',
         Time: `hoy a las ${format24(new Date().getHours())}:${format24(new Date().getMinutes())}`
