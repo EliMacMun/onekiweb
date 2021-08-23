@@ -44,18 +44,22 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //socket
-// const { Server } = require('ws');
-// const wss = new Server({ server });
-// wss.on('connection', (ws) => {
-//     console.log('Client connected');
-//     ws.on('message', (msg) => {
-//         wss.clients.forEach((client) => {
-//             console.log(client);
-//             client.send(msg);
-//         });
-//     })
-//     ws.on('close', () => console.log('Client disconnected'));
-// });
+//const { Server } = require('ws');
+//const wss = new Server({ server });
+//wss.on('connection', (ws) => {
+    //ws.send('conectado al websoket de oneki')
+    //console.log('Client connected');
+    //ws.on('message', (msg) => {
+        //wss.clients.forEach((client) => {
+            //console.log(client);
+            //wss.clients.forEach((c) => {
+                //c.send(msg);
+              //});
+            //// client.send(msg);
+        //});
+    //})
+    //ws.on('close', () => console.log('Client disconnected'));
+//});
 const socketIO = require('socket.io')
 const io = socketIO(server);
 io.on('connection', (socket) => {
