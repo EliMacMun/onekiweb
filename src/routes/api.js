@@ -61,7 +61,7 @@ router.get("/fakeDiscordMessage", async (req, res) => {
         UserColor: req.query.color ? `#${req.query.color}` : "#b9bbbe",
         AvatarUrl: req.query.avatar ?? "https://preview.redd.it/nx4jf8ry1fy51.gif?format=png8&s=a5d51e9aa6b4776ca94ebe30c9bb7a5aaaa265a6",
         UserName: req.query.user ?? "user",
-        Text: text.remplace(/</gi,'&#60;').remplace(/>/gi,'&#62;'),
+        Text: text.replace(/</gi,'&#60;').replace(/>/gi,'&#62;'),
         Bot: req.query.bot == '1',
         Verified: req.query.verified == '1' && req.query.bot == '1',
         Time: `hoy a las ${format24(new Date().getHours())}:${format24(new Date().getMinutes())}`
