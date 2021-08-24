@@ -51,7 +51,7 @@ router.get("/fakeDiscordMessage", async (req, res) => {
     let text = (req.query.text ?? "");
     if (req.query.mentions) {
         const mentions = JSON.parse(req.query.mentions)
-        for (const match of text.match(/<@!?\d{17,19}>/g)??[]) {
+        for (const match of text.match(/&#60;@!?\d{17,19}&#62;/g)??[]) {
             text = text.replace(match, `<span class="mention wrapper-3WhCwL mention interactive" aria-controls="popout_1112" aria-expanded="false" tabindex="0" role="button">@${mentions[match.match(/\d{17,19}/g)[0]]}</span>`);
             console.log(match, match.match(/\d{17,19}/g)[0], mentions[match.match(/\d{17,19}/g)[0]], text);
         }
