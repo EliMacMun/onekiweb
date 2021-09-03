@@ -11,6 +11,7 @@ admin.initializeApp({
     credential: admin.credential.cert(require("../firebase-key.json")),
     databaseURL: 'https://neoarmy-18011.firebaseio.com'
 });
+global.fetch = require('node-fetch')
 // const db = admin.database();
 
 //settings
