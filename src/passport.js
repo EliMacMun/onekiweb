@@ -14,7 +14,7 @@ passport.use(new Strategy({
     clientSecret: process.env.CLIENT_SECRET,    
     callbackURL: process.env.REDIRECT_URL,
     scope: ["identify"]
-}, (accestoken, refreshtoken, profile, cb) => {
+}, (accesToken, refreshToken, profile, cb) => {
     process.nextTick(() => {
         return cb(null, profile)
     });

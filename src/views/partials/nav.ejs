@@ -8,13 +8,13 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link <%-active=='inicio'?'active':''%>" href="/">Inicio</a>
+                    <a class="nav-link <%-active==='inicio'?'active':''%>" href="/">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled <%-active=='comandos'?'active':''%>" href="/commands">Comandos</a>
+                    <a class="nav-link <%-active==='comandos'?'active':''%>" href="/commands">Comandos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled <%-active=='soporte'?'active':''%>" href="/support">Soporte</a>
+                    <a class="nav-link disabled <%-active==='soporte'?'active':''%>" href="/support">Soporte</a>
                 </li>
                 <% if (user) { %>
                     <li class="nav-item dropdown">
@@ -47,7 +47,7 @@
 </nav>
 <script>
     window.onload = () => {
-        fetch(`${window.location.protocol}//${window.location.host}/api/user`).then(r=>r.json()).then(u=>{
+        fetch(`${window.location.protocol}//${window.location.host}/api/discord/bot`).then(r=>r.json()).then(u=>{
             for (const i of document.getElementsByClassName('namebot')) i.innerHTML = u.username + ' Bot';
             if(document.getElementById('pfpavatar').src.endsWith('bot')) document.getElementById('pfpavatar').src=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.webp?size=256`;
             for (const i of document.getElementsByClassName('avatarbot')) i.src=`https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.webp?size=1024`;

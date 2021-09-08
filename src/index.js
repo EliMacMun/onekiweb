@@ -1,3 +1,5 @@
+// noinspection NodeCoreCodingAssistance,JSCheckFunctionSignatures
+
 const express = require("express");
 require("dotenv").config();
 const app = express();
@@ -12,7 +14,7 @@ admin.initializeApp({
     databaseURL: 'https://neoarmy-18011.firebaseio.com'
 });
 global.fetch = require('node-fetch')
-// const db = admin.database();
+global.db = admin.firestore();
 
 //settings
 app.set("port", process.env.PORT || 3000);
@@ -21,7 +23,7 @@ app.set('view engine', 'ejs');
 app.use(require('express-ejs-layouts'))
 app.set('layout', './layouts/index')
 
-//midlewares
+//middlewares
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(
@@ -36,7 +38,7 @@ const server = app.listen(app.get("port"), () => {
 app.use(flash());
 app.use(
     session({
-        secret: "logindiscord",
+        secret: "loggindiscord",
         resave: false,
         saveUninitialized: false,
     })
