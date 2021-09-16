@@ -9,8 +9,9 @@ router.get('/:lang/cmd/:category', (req, res) => {
     try {
         cmd = require(`../../lang/${lang}/cmd.json`);
     } catch (error) {
-        cmd = require(`../..lang/en/cmd.json`);
+        cmd = require('../../lang/en/cmd.json');
     }
+    console.log(cmd)
     if (category==='categories') res.json({
         categories: cmd.map(c=>c.category).filter((e, i, a)=>a.indexOf(e)===i)
     });
@@ -26,9 +27,9 @@ router.get('/:lang/cmd/', (req, res) => {
     const { command } = req.query;
     let cmd;
     try {
-        cmd = require(`../..lang/${lang}/cmd.json`);
+        cmd = require(`../../lang/${lang}/cmd.json`);
     } catch (error) {
-        cmd = require(`../..lang/en/cmd.json`);
+        cmd = require(`../../lang/en/cmd.json`);
     }
     if (command) {
         // noinspection JSValidateTypes
