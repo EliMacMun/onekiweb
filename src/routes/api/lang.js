@@ -12,9 +12,7 @@ router.get('/:lang/cmd/:category', (req, res) => {
         cmd = require('../../lang/en/cmd.json');
     }
     console.log(cmd)
-    if (category==='categories') res.json({
-        categories: cmd.map(c=>c.category).filter((e, i, a)=>a.indexOf(e)===i)
-    });
+    if (category==='categories') res.json(cmd.map(c=>c.category).filter((e, i, a)=>a.indexOf(e)===i));
     else if (category==='all') res.json(cmd);
     else if (!cmd.filter(c=>c.category===category)) res.status(500).json({
         error: 'Category not found'
