@@ -13,7 +13,7 @@ router.get('/:lang/cmd/:category', (req, res) => {
     }
     if (category==='categories') res.json(cmd.map(c=>c.category).filter((e, i, a)=>a.indexOf(e)===i));
     else if (category==='all') res.json(cmd);
-    else if (!cmd.filter(c=>c.category===category)) res.status(500).send({
+    else if (!cmd.filter(c=>c.category===category)) res.status(500).json({
         error: 'Category not found'
     })
     else res.json(cmd.filter(c=>c.category===category));
@@ -30,7 +30,7 @@ router.get('/:lang/cmd/', (req, res) => {
     }
     if (command) {
         // noinspection JSValidateTypes
-        if (!cmd.find(c=>c.name===command||c.alias.includes(command))) res.status(500).send({
+        if (!cmd.find(c=>c.name===command||c.alias.includes(command))) res.status(500).json({
             error: 'Category not found'
         });
         else res.json(cmd.find(c=>c.name===command||c.alias.includes(command)))
