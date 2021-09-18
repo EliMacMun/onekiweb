@@ -303,10 +303,10 @@
         "name": "ban",
         "description": "Banea usuarios",
         "category": "Moderation",
-        "alias", [],
+        "alias": [],
         "user_permisions": ["BAN_MEMBERS"],
         "bot_permisions": ["BAN_MEMBERS"],
-        "use": "ban [usuario] <Dias de eliminacion de historial de mensajes> <-s (Mostrar el nombre del moderador responsable al ban> <razón>"
+        "use": "ban [usuario] <Message history deletion days> <-s (Show the name of the responsible moderator to the ban> <razón>",
         "example": "ban @user",
         "module": "js",
         "type": "command"
