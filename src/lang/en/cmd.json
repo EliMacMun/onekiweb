@@ -298,5 +298,17 @@
         "example": "config deleted reset",
         "module": "js",
         "type": "slash"
+    },
+    {
+        "name": "ban",
+        "description": "Banea usuarios",
+        "category": "Moderation",
+        "alias", [],
+        "user_permisions": ["BAN_MEMBERS"],
+        "bot_permisions": ["BAN_MEMBERS"],
+        "use": "ban [usuario] <Dias de eliminacion de historial de mensajes> <-s (Mostrar el nombre del moderador responsable al ban> <razón>"
+        "example": "ban @user",
+        "module": "js",
+        "type": "command"
     }
 ]
