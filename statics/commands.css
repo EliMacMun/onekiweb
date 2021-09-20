@@ -1,0 +1,72 @@
+body {
+    background-color: #161623;
+}
+.commands__list p {
+    position: absolute;
+    display: inline-block;
+    background-color: #1e1e2e    ;
+    margin-top: 4rem;
+    padding: 0.60rem 2.1rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+}
+.commands__list-active {
+    background-color: #222232;
+    cursor: default;
+}
+.commands__list-ul {
+    position: absolute;
+    margin-top: 9rem;
+    text-align: center;
+
+}
+.commands__list-ul li{
+    padding: 0.60rem 3.45rem;
+    transition-duration: 0.30s;
+}
+.commands__list-ul li:hover {
+    background-color: #222232;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.commands__box-container {
+    background-color: #222232;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin: 4rem 15rem;
+    overflow: auto;
+    z-index: 1;
+}
+.commands__box-container b {
+    font-weight: 400;
+}
+/*commands box properties*/
+.commands__box-category-name {
+    display: inline-block;
+    position: fixed;
+    background-color: #1e1e2e;
+    margin: 4rem 15rem;
+    padding: 0.60rem 36%;
+    z-index: 2;
+}
+.commands__box-category-name p {
+    text-align: center;
+    font-size: 2rem;
+}
+.commands__box-commands-list {
+    margin: 5rem 1rem ;
+}
+.commands__box-commands-list h4 {
+    font-size: 2rem;
+    font-weight: 400;
+}
+.commands__box-commands-list p {
+    font: 1.5rem;
+    padding: 1rem;
+}
+.commands__box-commands-list h5 {
+    font-size: 1.5rem;
+    font-weight: 300;
+}

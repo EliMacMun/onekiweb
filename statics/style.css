@@ -1,0 +1,51 @@
+body {
+    background-color: #161623;
+    overflow: hidden;
+}
+*{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    text-decoration: none;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+.oneki-image {
+    display: inline-block;
+    border-radius: 50%;
+    width: 40%;
+    padding: 5.4rem 5rem;
+}
+.parte-inferior__oneki {
+    display: inline-block;
+    position: absolute;
+    padding: 12rem 4rem;
+    font-weight: 400;
+    font-size: 5rem;
+}
+.parte-inferior__p {
+    display: inline-block;
+    position: absolute;
+    padding: 18rem 0.1rem;
+    font-weight: 200;
+    font-size: 2rem;
+    text-align: center;
+}
+.parte-inferior__button {
+    display: inline-block;
+    position: absolute;
+    margin: 23rem 13rem;
+    cursor: pointer;
+    background-color:#fd7cff;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.60rem 2rem;
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.4rem;
+    transition: all 0.12s;
+}
+.parte-inferior__button:hover {
+    background-color: #f89dfa;
+    text-decoration: underline;
+}
