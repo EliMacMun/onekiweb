@@ -3,24 +3,23 @@ const router = Router();
 const passport = require("../passport");
 // const auth = require("../auth");
 
-const bot = require('../bot');
-
 router.get('/', async (req, res) => {
-    // console.log(req.user);
+    if(!userbot) await getUserbot();
+    console.log(userbot)
     res.render('index', {
         title: 'Oneki Bot',
         active: 'inicio',
-        userbot: bot.user,
+        userbot,
         user: req.user
     });
 });
 
 router.get('/commands', async (req, res) => {
-    // console.log(req.user);
+    if(!userbot) await getUserbot();
     res.render('commands', {
         title: 'Oneki Bot',
         active: 'inicio',
-        userbot: bot.user,
+        userbot,
         user: req.user
     });
 });

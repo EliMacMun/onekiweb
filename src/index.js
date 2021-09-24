@@ -15,6 +15,7 @@ admin.initializeApp({
 });
 global.fetch = require('node-fetch')
 global.db = admin.firestore();
+global.userbot = null
 
 //settings
 app.set("port", process.env.PORT || 3000);
@@ -75,3 +76,16 @@ wss.on('connection', (ws, req) => {
 app.use("/", require("./routes/web"));
 app.use("/api", require("./routes/api"));
 console.log('************************\n', process.env, '\n************************');
+
+global.getUserbot = function() {
+    return new Promise((resolve, reject) => {
+        fetch('https://discord.com/api/v9/users/@me', {
+            headers: {
+                Authorization: 'Bot '+process.env.TOKEN_DISCORD
+            }
+        }).then(r=>r.json()).then(r=> {
+            global.userbot = r
+            resolve(r)
+        })
+    })
+}

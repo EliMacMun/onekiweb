@@ -1,3 +1,60 @@
-<main>
-
-</main>
+<div class="commands">
+    <div class="commands__list">
+        <p>Comandos</p>
+        <ul class="commands__list-ul">
+            <li class="category commands__list-active"><a>Configuración</a></li>
+            <li class="category commands__list-active"><a>Comandos</a></li>
+            <li class="category commands__list-active"><a>Entretenimiento</a></li>
+            <li class="category commands__list-active"><a>Etc</a></li>
+        </ul>
+    </div>
+    <div class="commands__box">
+        <div class="commands__box-category-name">
+            <p id="category">{category}</p>
+        </div>
+        <div class="commands__box-container">
+            <div class="commands__box-commands-list">
+                <div class="config-prefix-set">
+                    <h4>{name}</h4>
+                    <p>{description} <br> <br>
+                        {use} <br>
+                        {message} <b>{command}</b>
+                    </p>
+                    <h5>{Example-part}</h5>
+                    <p>
+                        <b>
+                            {example}
+                        </b>
+                    </p>
+                </div>
+                <div class="config-language-set">
+                    <h4>{name}</h4>
+                    <p>{description} <br> <br>
+                        {use} <br>
+                        {message} <b>{command}</b>
+                    </p>
+                    <h5>{Example-part}</h5>
+                    <p>
+                        <b>
+                            {example}
+                        </b>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const ul = document.getElementsByClassName("category")
+    let actualCategory = ul[0].getElementsByTagName('a')[0].innerHTML
+    const updateCategory = (c) => {
+        ul
+    }
+    for (const ulElement of ul) {
+        if(ulElement.getElementsByTagName('a')[0].innerHTML != actualCategory) ulElement.classList.remove('commands__list-active')
+        ulElement.addEventListener('onclick', b => {
+            document.getElementById('category').innerHTML = actualCategory
+        })
+    }
+    document.getElementById('category').innerHTML = actualCategory
+</script>
