@@ -1,0 +1,52 @@
+.main-content {
+    display: flexbox;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
+    height: 26rem;
+    background-image: url('../main-bg.svg');
+    background-size: cover;
+    background-position-y: bottom;
+    background-position-x: center;
+    z-index: 5;
+}
+.main-content__bot-name {
+    font-size: 2.5rem;
+    margin: 1.5rem;
+}
+.main-content__bot-desk {
+    font-size: 1.4rem;
+}
+.main-content__invite-button {
+    background-color: #f891fa;
+    border: none;
+    padding: 0.80em;
+    border-radius: 0.30rem;
+}
+.main-content__invite-button a{
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+.main-content__invite-button:hover{
+    background-color: #f89dfa;
+    text-decoration: underline;
+}
+/* ------------------------------footer----------------------------- */
+.main-content__footer-bg {
+    width: 100vw;
+    height: 10rem;
+    background-image: url(../footer.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: top;
+    background-position-x: center;
+}
+.main-content__footer-content {
+    display: flexbox;
+    width: 100vw;
+    height: 10rem;
+}

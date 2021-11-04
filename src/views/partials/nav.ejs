@@ -1,27 +1,18 @@
-<div>
-    <div class="nav-bar"></div>
-    <div class="bot-name">
-        <h1><%=userbot.username%></h1>
+<header class="global-nav-bar">
+    <div class="global-nav__bot-name">
+        <h1>Oneki bot</h1>
     </div>
-    <div class="nav-list">
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="/commands">Comandos</a></li>
-                    <li><a href="/support">Soporte</a></li>
-                    <li><a href="https://discord.com/oauth2/authorize?client_id=858903483004354560&permissions=8&scope=bot%20applications.commands" target="_blank">Invitar</a></li>
-                </ul>
-            </nav>
-        </header>
+    <div class="global-nav__list">
+        <nav>
+            <ul>
+                <li>Inicio</li>
+                <li>Comandos</li>
+                <li>Soporte</li>
+                <li>Invitar</li>
+            </ul>
+        </nav>
     </div>
-    <div class="loggin-button">
-        <%if(user){%>
-            <p><%=user.username%></p>
-            <img src="https://cdn.discordapp.com/avatars/<%=user.id%>/<%=user.avatar%>.webp?size=128" alt="<%=user.username%> profile image" >
-        <%} else {%>
-            <p><a href="/login">Iniciar sesión</a></p>
-            <img src="Logged off.png" alt="loggin image">
-        <%}%>
+    <div class="global-nav__loggin">
+        <p>Iniciar sesión</p>
     </div>
-</div>
+</header>

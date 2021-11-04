@@ -1,0 +1,86 @@
+body {
+    background-color: #0a0a11;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+/*-----------------barra de navegacion------------------*/
+.global-nav-bar {
+    background-color: rgba(0, 0, 0, .70);
+    display: inline-flex;
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: 4rem;
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    user-select: none;
+    z-index: 20;
+    
+}
+.global-nav__bot-name {
+    margin-top: 0.70rem;
+    margin-left: 4%;
+}
+.global-nav__bot-name h1{
+    font-weight: 300;
+    margin: 0;
+}
+.global-nav__list{
+    width:25rem;
+    margin-top: 0.20rem;
+}
+.global-nav__list li{
+    display: inline-flex;
+    padding-left: 2%;
+    opacity: 80%;
+    font-weight: 200;
+    font-size: 1.2rem;
+    transition: opacity 0.10s;
+    z-index: 20;
+}
+.global-nav__loggin{
+    position: absolute;
+    right: 4%;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+.global-nav__loggin p{
+    opacity: 80%;
+    transition: opacity 0.10s;
+}
+.global-nav__list li:hover{
+    opacity: 100%;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.global-nav__loggin p:hover{
+    opacity: 100%;
+    text-decoration: underline;
+    cursor: pointer;
+}
+/* -------------------------------scroll bar---------------------------- */
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track { 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #6c6c70; 
+    border-radius: 12px;
+    width: 7px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #57575a;
+  }
