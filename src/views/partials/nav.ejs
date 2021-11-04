@@ -5,14 +5,20 @@
     <div class="global-nav__list">
         <nav>
             <ul>
-                <li>Inicio</li>
-                <li>Comandos</li>
-                <li>Soporte</li>
-                <li>Invitar</li>
+                <li onclick="redirect('/')">Inicio</li>
+                <li onclick="redirect('/commands')">Comandos</li>
+                <li onclick="redirect('/support')">Soporte</li>
+                <li onclick="redirect('/invite')">Invitar</li>
             </ul>
         </nav>
     </div>
     <div class="global-nav__loggin">
-        <p>Iniciar sesión</p>
+        <p onclick="redirect('/login')">Iniciar sesión</p>
     </div>
 </header>
+<script>
+    function redirect(route){
+        console.log(location)
+        location.href = location.origin+route
+    }
+</script>

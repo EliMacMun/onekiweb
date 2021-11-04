@@ -29,7 +29,16 @@ router.get('/login', passport.authenticate("discord", { failureRedirect: "/" }),
 });
 
 router.get('/invite', (req, res) => {
-    res.redirect('https://discord.com/api/oauth2/authorize?client_id=901956486064922624&permissions=8&redirect_uri=https%3A%2F%2Foneki.herokuapp.com%2Flogin&scope=bot%20applications.commands');
+    res.redirect('https://discord.com/api/oauth2/authorize?client_id=901956486064922624&permissions=8&redirect_uri=https%3A%2F%2Foneki.herokuapp.com%2Fthanks&scope=bot%20applications.commands');
 });
+
+router.get('/thanks', (req, res) => {
+    if(!req.user) res.redirect('/login')
+    else res.redirect('/')
+})
+
+router.get('/discord', (req, res) => {
+    res.redirect('discord.gg/8SpUxnF6v4')
+})
 
 module.exports = router;

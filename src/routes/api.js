@@ -22,9 +22,10 @@ router.use('/moderation', require('./api/moderation'))
 
 //fakeDiscordMessage
 router.get("/fakeDiscordMessage", async (req, res) => {
-    console.log(req.query);
+    // console.log(req.query);
     let text = (req.query.text ?? "");
     if (req.query.mentions) for (const match of text.match(/&#60;@!?\d{17,19}&#62;/g)??[]) text = text.replace(match, userMention(JSON.parse(req.query.mentions)[match.match(/\d{17,19}/g)[0]]));
+    if (req.query.roles) for (const match of text.match(/&#60;@&\d{17,19}&#62;/g)??[]) text = text.replace(match, rolesMention(JSON.parse(req.query.roles)[match.match(/\d{17,19}/g)[0]]));
     res.render('fakeDiscordMessage', {
         layout: false,
         UserColor: req.query.color ? `#${req.query.color}` : "#b9bbbe",
@@ -56,4 +57,8 @@ function format24(hour) {
  */
 function userMention(user) {
     return `<span class="mention wrapper-3WhCwL mention interactive">@${user}</span>`
+}
+
+function rolesMention(role) {
+    return `<span class="roleMention-2Bj0ju desaturate-qhyunI wrapper-3WhCwL mention">@${role}</span>`
 }
