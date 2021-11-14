@@ -16,12 +16,13 @@ router.get('/', async (req, res) => {
 
 router.get('/commands', async (req, res) => {
     if(!userbot) await getUserbot();
-    res.render('commands', {
+    /*res.render('commands', {
         title: 'Oneki Bot',
         active: 'inicio',
         userbot,
         user: req.user
-    });
+    });*/
+    res.redirect('/')
 });
 
 router.get('/login', passport.authenticate("discord", { failureRedirect: "/" }), async (req, res) => {
