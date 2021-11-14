@@ -39,7 +39,7 @@ router.get('/thanks', (req, res) => {
 })
 
 router.get('/discord', (req, res) => {
-    res.redirect('discord.gg/8SpUxnF6v4')
+    res.redirect('https://discord.gg/8SpUxnF6v4')
 })
 
 module.exports = router;
