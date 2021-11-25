@@ -13,7 +13,12 @@
         </nav>
     </div>
     <div class="global-nav__loggin">
-        <p onclick="redirect('/login')">Iniciar sesión</p>
+        <%if(user) {%>
+<!--        <%=`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.webp`%>-->
+            <p><%=user.username%></p>
+        <%} else {%>
+            <p onclick="redirect('/login')">Iniciar sesión</p>
+        <%}%>
     </div>
 </header>
 <script>
