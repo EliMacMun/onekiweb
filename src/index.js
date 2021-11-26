@@ -9,6 +9,7 @@ const passport = require("./passport");
 const session = require("express-session");
 const flash = require("connect-flash");
 const admin = require("firebase-admin");
+const YouTubeNotifier = require('youtube-notification');
 admin.initializeApp({
     credential: admin.credential.cert(require("../firebase-key.json")),
     databaseURL: 'https://neoarmy-18011.firebaseio.com'
@@ -89,3 +90,18 @@ global.getUserbot = function() {
         })
     })
 }
+
+notifier = new YouTubeNotifier({
+    hubCallback: 'https://oneki.herokuapp.com/api/notifications/youtube/test',
+    secret: 'JOIN_MY_SERVER_OR_DIE'
+});
+
+
+notifier.on('notified', data => {
+    console.log(`**${data.channel.name}** just uploaded a new video - **${data.video.link}**`);
+    // client.channels.cache.get(SERVER_CHANNEL_ID).send(
+    //     `**${data.channel.name}** just uploaded a new video - **${data.video.link}**`
+    // );
+});
+
+notifier.subscribe('UCiVty0vnYbswLGhmWTp6FPA');
