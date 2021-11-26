@@ -3,7 +3,7 @@ const router = Router();
 
 module.exports = router;
 
-router.use('/youtube/test', notifier.listener())
+router.use('/youtube', notifier.listener())
 // router.get('/youtube/test', (req, res) => {
 //     console.log('get')
 //     console.log('body', req.body);

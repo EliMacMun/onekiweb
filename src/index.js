@@ -74,13 +74,19 @@ wss.on('connection', (ws, req) => {
 
 //youtube
 notifier = new YouTubeNotifier({
-    hubCallback: 'https://oneki.herokuapp.com/api/notifications/youtube/test',
+    hubCallback: 'https://oneki.herokuapp.com/api/notifications/youtube/',
     secret: 'JOIN_MY_SERVER_OR_DIE'
 });
 
 
 notifier.on('notified', data => {
-    console.log(`**${data.channel.name}** just uploaded a new video - **${data.video.link}**`);
+    wss.clients.forEach((client) => {
+        client.send(JSON.stringify({
+            event: 'new_yt_video',
+            value: data
+        }));
+    });
+    // console.log(`**${data.channel.name}** just uploaded a new video - **${data.video.link}**`);
     // client.channels.cache.get(SERVER_CHANNEL_ID).send(
     //     `**${data.channel.name}** just uploaded a new video - **${data.video.link}**`
     // );
