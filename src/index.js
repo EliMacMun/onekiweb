@@ -53,6 +53,7 @@ const wss = new Server({ server });
 wss.on('connection', (ws, req) => {
     console.log(`Client ${req.socket?.remoteAddress} connected`);
     ws.on('message', (msg) => {
+        console.log('d')
         wss.clients.forEach((client) => {
             client.send(msg);
         });
@@ -74,7 +75,7 @@ wss.on('connection', (ws, req) => {
 //routes
 app.use("/", require("./routes/web"));
 app.use("/api", require("./routes/api"));
-console.log('************************\n', process.env, '\n************************');
+// console.log('************************\n', process.env, '\n************************');
 
 global.getUserbot = function() {
     return new Promise((resolve, reject) => {

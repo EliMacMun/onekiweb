@@ -17,6 +17,9 @@ router.use('/discord', require('./api/discord'));
 //lang
 router.use('/lang', require('./api/lang'));
 
+//notifications
+router.use('/notifications', require('./api/notifications'));
+
 //moderation
 router.use('/moderation', require('./api/moderation'))
 
