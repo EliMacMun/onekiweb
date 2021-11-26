@@ -8,6 +8,10 @@ router.get('/youtube/test', (req, res) => {
     console.log('body', req.body);
     console.log('params', req.params);
     console.log('query', req.query);
+    res.status(200).json({
+        status: 'ok',
+        code: 200
+    })
 })
 
 router.post('/youtube/test', (req, res) => {
@@ -15,4 +19,8 @@ router.post('/youtube/test', (req, res) => {
     console.log('body', req.body);
     console.log('params', req.params);
     console.log('query', req.query);
+    res.status(200).json({
+        status: 'ok',
+        code: 200
+    })
 })
