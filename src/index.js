@@ -72,6 +72,21 @@ wss.on('connection', (ws, req) => {
 //     socket.on('disconnect', () => console.log('Client disconnected'));
 // });
 
+//youtube
+notifier = new YouTubeNotifier({
+    hubCallback: 'https://oneki.herokuapp.com/api/notifications/youtube/test',
+    secret: 'JOIN_MY_SERVER_OR_DIE'
+});
+
+
+notifier.on('notified', data => {
+    console.log(`**${data.channel.name}** just uploaded a new video - **${data.video.link}**`);
+    // client.channels.cache.get(SERVER_CHANNEL_ID).send(
+    //     `**${data.channel.name}** just uploaded a new video - **${data.video.link}**`
+    // );
+});
+
+notifier.subscribe('UCiVty0vnYbswLGhmWTp6FPA');
 
 //routes
 app.use("/", require("./routes/web"));
@@ -90,18 +105,3 @@ global.getUserbot = function() {
         })
     })
 }
-
-notifier = new YouTubeNotifier({
-    hubCallback: 'https://oneki.herokuapp.com/api/notifications/youtube/test',
-    secret: 'JOIN_MY_SERVER_OR_DIE'
-});
-
-
-notifier.on('notified', data => {
-    console.log(`**${data.channel.name}** just uploaded a new video - **${data.video.link}**`);
-    // client.channels.cache.get(SERVER_CHANNEL_ID).send(
-    //     `**${data.channel.name}** just uploaded a new video - **${data.video.link}**`
-    // );
-});
-
-notifier.subscribe('UCiVty0vnYbswLGhmWTp6FPA');
