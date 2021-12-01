@@ -1,44 +1,29 @@
-<div class="commands">
-    <div class="commands__list">
-        <p>Comandos</p>
-        <ul class="commands__list-ul">
-            <li class="category commands__list-active"><a>Configuración</a></li>
-            <li class="category commands__list-active"><a>Comandos</a></li>
-            <li class="category commands__list-active"><a>Entretenimiento</a></li>
-            <li class="category commands__list-active"><a>Etc</a></li>
+<head>
+    <link rel="stylesheet" href="css/commands_global-style.css">
+</head>
+<div class="commands-container">
+    <div class="commands-container-list">
+        <h2 class="commands-container-list-title">Categorias</h2>
+        <ul class="commands-container-list-ul">
+            <li><a>Configuracion</a></li>
+            <li><a>Moderacion</a></li>
+            <li><a>Informacion</a></li>
+            <li><a>Voz</a></li>
+            <li><a>Extras</a></li>
         </ul>
     </div>
-    <div class="commands__box">
-        <div class="commands__box-category-name">
-            <p id="category">{category}</p>
+    <div class="commands-container-info">
+        <div class="commands-container-command-name">
+            <h2>Configuracion</h2>
         </div>
-        <div class="commands__box-container">
-            <div class="commands__box-commands-list">
-                <div class="config-prefix-set">
-                    <h4>{name}</h4>
-                    <p>{description} <br> <br>
-                        {use} <br>
-                        {message} <b>{command}</b>
-                    </p>
-                    <h5>{Example-part}</h5>
-                    <p>
-                        <b>
-                            {example}
-                        </b>
-                    </p>
-                </div>
-                <div class="config-language-set">
-                    <h4>{name}</h4>
-                    <p>{description} <br> <br>
-                        {use} <br>
-                        {message} <b>{command}</b>
-                    </p>
-                    <h5>{Example-part}</h5>
-                    <p>
-                        <b>
-                            {example}
-                        </b>
-                    </p>
+        <div class="commands-container-info-content">
+            <div>
+                <div class="cards">
+                    <h4>/Example</h4>
+                    <p>description</p>
+                    <div class="cards-active">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod eius debitis libero maiores beatae quidem delectus eligendi. Perferendis facere itaque necessitatibus, quas dolor fugit quod architecto officia provident nisi autem!</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -5,28 +5,52 @@
         <link rel="icon" href="icon.ico">
         <meta charset="utf-8">
         <!--Web Style-->
-        <link rel="stylesheet" type="text/css" href="/statics/css-styles/style.css">
-        <link rel="stylesheet" type="text/css" href="../css-styles/global-style.css">
-
+        <link rel="stylesheet" href="../css-styles/global-style.css">
+        <link rel="stylesheet" href="../css-styles/main.css">
         <!--Google fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <div class="bot-name">
-                <h1>Oneki bot</h1>
+        <header class="global-nav-content">
+            <div class="global-nav_bot-name">
+                <h1>Oneki Bot</h1>
             </div>
-            <nav>
+            <nav class="global-nav_list">
                 <ul>
-                    <li>Inicio</li>
-                    <li>Comandos</li>
-                    <li>Soporte</li>
-                    <li>Invvitar</li>
+                    <li><a>Inicio</a></li>
+                    <li><a>Comandos</a></li>
+                    <li><a>Soporte</a></li>
+                    <li><a>Invitar</a></li>
                 </ul>
             </nav>
-            <p>Iniciar sesión</p>
+            <div class="global-nav_loggin">
+                <img src="../media/oneki.webp" alt="profile picture">
+                <p>Iniciar sesion</p>
+            </div>
         </header>
+        <main class="main">
+            <div class="main-content">
+                <h2 class="main-content__bot-name">Oneki bot</h2>
+                <p class="main-content__bot-desk">Un bot multifuncional para tu servidor de Discord</p>
+                <button type="button" class="main-content__invite-button button"><a href="/invite" target="_blank">Invitar a Discord</a></button>
+            </div>
+        </main>
+        <footer class="main-content__footer">
+            <div class="main-content__footer-content">
+                <h3>Mas información</h3>
+                <h4 class="footer__subtitle-1 footer__subtible">Contacto</h4>
+                <ul class="main-content__footer-ul footer-list">
+                    <li><a href="/discord">Servidor de Discord</a></li>
+                    <!-- <li><a href="/invite">Invita a Oneki a tu servidor de Discord</a></li> -->
+                </ul>
+                <h4 class="footer__subtitle-2 footer__subtible">Creditos</h4>
+                <ul class="main-content__footer-ul-2 footer-list">
+                    <li><b>Estilo visual:</b> <a href="https://github.com/Nebula-mx" target="_blank">Nebula</a></li>
+                    <li><b>Comportamiento de la pagina:</b> <a href="https://github.com/EliMacMun" target="_blank">Elí Maciel</a></li>
+                </ul>
+            </div>
+        </footer>
     </body>
 </html>

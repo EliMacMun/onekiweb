@@ -11,60 +11,81 @@ body {
     overflow-x: hidden;
 }
 /*-----------------barra de navegacion------------------*/
-.global-nav-bar {
-    background-color: rgba(0, 0, 0, .70);
-    display: inline-flex;
+.global-nav-content {
+    display: flex;
     position: sticky;
     top: 0;
     width: 100vw;
     height: 4rem;
-    -webkit-backdrop-filter: blur(20px);
-            backdrop-filter: blur(20px);
+    padding: 0.70rem;
+    background-color: rgba(0, 0, 0, 0.60);
+    -webkit-backdrop-filter: blur(28px);
+        backdrop-filter: blur(28px);
     user-select: none;
-    z-index: 20;
-    
 }
-.global-nav__bot-name {
-    margin-top: 0.70rem;
-    margin-left: 4%;
+.global-nav_bot-name {
+    width: 20%;
+    order: 1;
 }
-.global-nav__bot-name h1{
+.global-nav_bot-name h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 2rem;
     font-weight: 300;
-    margin: 0;
+    cursor: pointer;
 }
-.global-nav__list{
-    width:25rem;
-    margin-top: 0.20rem;
+.global-nav_list {
+    width: 80%;
+    height: 100%;
+    order: 2;
 }
-.global-nav__list li{
+.global-nav_list ul {
+    padding-left: 0;
+    margin: 0.5rem;
+}
+.global-nav_list li {
     display: inline-flex;
-    padding-left: 2%;
-    opacity: 80%;
+    padding-left: 0.8rem;
+    font-size: 1.2rem;
     font-weight: 200;
-    font-size: 1.2rem;
-    transition: opacity 0.10s;
-    z-index: 20;
-}
-.global-nav__loggin{
-    position: absolute;
-    right: 4%;
-    font-size: 1.2rem;
-    font-weight: 300;
-}
-.global-nav__loggin p{
     opacity: 80%;
-    transition: opacity 0.10s;
+    transition: opacity 0.12s;
 }
-.global-nav__list li:hover{
+.global-nav_loggin {
+    display: inline-flex;
+    justify-content: right;
+    margin-right: 2%;
+    width: 20%;
+    order: 3;
+}
+.global-nav_loggin img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.global-nav_loggin p {
+    margin: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 200;
+    opacity: 80%;
+    transition: opacity 0.12s;
+}
+.global-nav_list li:hover {
     opacity: 100%;
     text-decoration: underline;
     cursor: pointer;
 }
-.global-nav__loggin p:hover{
+.global-nav_loggin p:hover {
     opacity: 100%;
     text-decoration: underline;
     cursor: pointer;
 }
+.global-nav_button {
+    display: none;
+    order: 4;
+}
+
 /* -------------------------------footer-------------------------------- */
 .main-content__footer-content {
     display: grid;
@@ -106,7 +127,7 @@ body {
 .main-content__footer-ul-2 {
     grid-column: 3;
 }
-.footer-list li :hover {
+.footer-list a {
     text-decoration: underline;
 }
 /* -------------------------------scroll bar---------------------------- */
@@ -114,30 +135,31 @@ body {
 ::-webkit-scrollbar {
     width: 7px;
 }
-  
+
 /* Track */
-::-webkit-scrollbar-track { 
+::-webkit-scrollbar-track {
     border-radius: 10px;
 }
-   
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #6c6c70; 
+    background: #6c6c70;
     border-radius: 12px;
     width: 7px;
 }
-  
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: #57575a;
 }
 /* -------------------------------responsive----------------------------- */
-@media screen and (max-width: 950px) {
-    .global-nav__bot-name {
-        margin-left: 6%;
+@media screen and (min-width: 2040px) {
+    .global-nav_list {
+        text-align: center;
+        margin-left: 1%;
     }
-    .global-nav__list {
-        display: none;
+    .global-nav_list li {
+        padding-left: 2%;
     }
 }
 @media screen and (max-width: 1479px) {
@@ -154,3 +176,60 @@ body {
         grid-column: 3 / 5;
     }
 }
+@media screen and (max-width: 1115px){
+    .global-nav_bot-name{
+        width: 30%;
+    }
+    .global-nav_list {
+        width: 40%;
+    }
+    .global-nav_loggin {
+        width: 30%;
+    }
+}
+@media screen and (max-width: 770px){
+    .global-nav-content {
+        background-color: rgba(0, 0, 0, 0.80);
+        height: fit-content;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .global-nav_bot-name {
+        min-width: 170px;
+    }
+    .global-nav_list {
+        display: none;
+        order: 4;
+    }
+    .global-nav_loggin {
+        width: 40%;
+    }
+    .global-nav_loggin p {
+        display: none;
+        order: 5;
+    }
+    .global-nav_loggin img {
+        display: flex;
+        margin-right: 0.60rem;
+        justify-content: right;
+        cursor: pointer;
+        order: 2;
+    }
+    .global-nav_button {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        cursor: pointer;
+        order: 3;
+    }
+}
+/* parte responsiva de la barra */
+.active {
+    display: block;
+    width: 100%;
+}
+.active li {
+    display: block;
+}
+/* google fonts */
+.material-icons.md-32 { font-size: 32px; }
