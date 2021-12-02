@@ -8,17 +8,19 @@
     </div>
     <div class="commands-container-info">
         <div class="commands-container-command-name">
-            <h2>Configuracion</h2>
+            <h2><%=categoires[0]%></h2>
         </div>
         <div class="commands-container-info-content">
             <div>
+                <% commands.filter(c=>c.category == categoires[0]).forEach(function(command) { %>
                 <div class="cards">
-                    <h4>/Example</h4>
-                    <p><%=categoires%>></p>
+                    <h4><%=command.type=='slash'?'/':'>'%><%=command.name%></h4>
+                    <p><%=command.description%></p>
                     <div class="cards-active">
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod eius debitis libero maiores beatae quidem delectus eligendi. Perferendis facere itaque necessitatibus, quas dolor fugit quod architecto officia provident nisi autem!</p>
                     </div>
                 </div>
+                <% }); %>
             </div>
         </div>
     </div>

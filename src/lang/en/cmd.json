@@ -1,7 +1,7 @@
 [
     {
         "name": "ahorcado",
-        "description": "Generate a simple hangman game. The symbols and words are ignored, the \"ñ\" are replaced by \"n\", you can play with someone if you mention it in the command",
+        "description": "Generate a simple hangman game. The \"ñ\" are replaced by \"n\", you can play with someone if you mention it in the command",
         "category": "Entertainment",
         "alias": [],
         "user_permisions": [],
