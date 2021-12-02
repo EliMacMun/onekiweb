@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     res.render('index', {
         title: 'Oneki Bot',
         active: 'inicio',
-        active: 'home',
+        route: 'home',
         userbot,
         user: req.user
     });
