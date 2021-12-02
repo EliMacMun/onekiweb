@@ -14,8 +14,8 @@ admin.initializeApp({
     credential: admin.credential.cert(require("../firebase-key.json")),
     databaseURL: 'https://neoarmy-18011.firebaseio.com'
 });
-global.fetch = require('node-fetch')
-global.db = admin.firestore();
+fetch = require('node-fetch')
+db = admin.firestore();
 global.userbot = null
 
 //settings
@@ -112,7 +112,7 @@ app.use("/", require("./routes/web"));
 app.use("/api", require("./routes/api"));
 // console.log('************************\n', process.env, '\n************************');
 
-global.getUserbot = function() {
+getUserbot = function() {
     return new Promise((resolve, reject) => {
         fetch('https://discord.com/api/v9/users/@me', {
             headers: {

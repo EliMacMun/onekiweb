@@ -22,7 +22,8 @@ router.get('/commands', async (req, res) => {
         active: 'commands',
         route: 'commands',
         userbot,
-        user: req.user
+        user: req.user,
+        commands: require('../lang/en/cmd.json')
     });
 });
 
