@@ -80,6 +80,19 @@ notifier = new YouTubeNotifier({
 
 
 notifier.on('notified', data => {
+    db.collection('notifications').doc('youtube').get().then(snap => {
+        if(snap.exists) {
+            snap.data()[data.channel.id].map(id => {
+                wss.clients.forEach((client) => {
+                    client.send(JSON.stringify({
+                        event: 'new_yt_video',
+                        server: id,
+                        value: data
+                    }));
+                });
+            })
+        }
+    })
     wss.clients.forEach((client) => {
         client.send(JSON.stringify({
             event: 'new_yt_video',

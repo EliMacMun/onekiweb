@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
     <title><%-title%></title>
     <!--Web Style-->
-    <link rel="stylesheet" href="css/global-style.css">
-    <link rel="stylesheet" href="css/main.css">
+    <%if(['commands'].includes(route)){%>
+        <link rel="stylesheet" href="css/commands_global-style.css">
+    <%} else {%>
+        <link rel="stylesheet" href="css/global-style.css">
+    <%}%>
     <!--Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

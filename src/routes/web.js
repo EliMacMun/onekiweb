@@ -9,6 +9,7 @@ router.get('/', async (req, res) => {
     res.render('index', {
         title: 'Oneki Bot',
         active: 'inicio',
+        active: 'home',
         userbot,
         user: req.user
     });
@@ -18,7 +19,8 @@ router.get('/commands', async (req, res) => {
     if(!userbot) await getUserbot();
     res.render('commands', {
         title: 'Oneki Bot',
-        active: 'inicio',
+        active: 'commands',
+        route: 'commands',
         userbot,
         user: req.user
     });
