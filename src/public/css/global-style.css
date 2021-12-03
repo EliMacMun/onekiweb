@@ -110,6 +110,7 @@ body {
 }
 .global-footer_content li {
     font-size: 1.3rem;
+    list-style: none;
 }
 .global-footer_content-left {
     width: 50%;
