@@ -22,6 +22,7 @@ body {
     -webkit-backdrop-filter: blur(28px);
         backdrop-filter: blur(28px);
     user-select: none;
+    justify-content: space-around;
 }
 .global-nav_bot-name {
     width: 20%;
@@ -54,8 +55,7 @@ body {
 }
 .global-nav_loggin {
     display: inline-flex;
-    justify-content: right;
-    margin-right: 2%;
+    justify-content: center;
     width: 20%;
     order: 3;
 }
@@ -87,48 +87,40 @@ body {
 }
 
 /* -------------------------------footer-------------------------------- */
-.main-content__footer-content {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+.global-footer {
+    display: flex;
+    width: 100vw;
+    height: fit-content;
+    justify-content: center;
+    flex-wrap: wrap;
 }
-.main-content__footer-content h3 {
-    grid-column: 1 / 5;
-    margin-bottom: 0;
+.global-footer_title {
+    width: 100vw;
+    font-size: 2rem;
     text-align: center;
+}
+.global-footer_content {
+    display: inline-flex;
+    width: 100vw;
+    text-align: center;
+    flex-direction: row;
+}
+.global-footer_content p {
     font-size: 2rem;
 }
-.footer__subtible {
-    font-size: 1.5rem;
-    margin-bottom: 0;
-    text-align: center;
+.global-footer_content li {
+    font-size: 1.3rem;
 }
-.footer__subtitle-1 {
-    grid-column: 2;
-    grid-row: 2;
-    margin: 1.5rem 0 0 0;
+.global-footer_content-left {
+    width: 50%;
 }
-.footer__subtitle-2 {
-    grid-column: 3;
-    grid-row: 2;
-    margin: 1.5rem 0 0 0;
+.global-footer_content-right {
+    width: 50%;
 }
-.footer-list {
-    grid-row: 3;
-    font-size: 1rem;
-}
-.footer-list a {
+.global-footer_content a {
     color: #fff;
-    text-decoration: none;
-}
-.main-content__footer-ul {
-    grid-column: 2;
-}
-.main-content__footer-ul-2 {
-    grid-column: 3;
-}
-.footer-list a {
     text-decoration: underline;
+    cursor: pointer;
 }
 /* -------------------------------scroll bar---------------------------- */
 /* width */
@@ -152,6 +144,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #57575a;
 }
+
 /* -------------------------------responsive----------------------------- */
 @media screen and (min-width: 2040px) {
     .global-nav_list {
@@ -221,6 +214,18 @@ body {
         align-items: center;
         cursor: pointer;
         order: 3;
+    }
+}
+@media screen and (max-width: 710px) {
+    .global-footer_content {
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .global-footer_content-left {
+        width: 100%;
+    }
+    .global-footer_content-right {
+        width: 100%;
     }
 }
 /* parte responsiva de la barra */
