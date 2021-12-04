@@ -9,6 +9,9 @@
     <div class="commands-container-info">
         <div class="commands-container-command-name">
             <h2><%=categoires[0]%></h2>
+            <div class="commands-container-command-name_button">
+                <span onclick="activeBar()" class="material-icons md-32">reorder</span>
+            </div>
         </div>
         <div class="commands-container-info-content">
             <div>
@@ -16,7 +19,7 @@
                 <div class="cards">
                     <h4><%=command.type=='slash'?'/':'>'%><%=command.name%></h4>
                     <p><%=command.description%></p>
-                    <div class="cards-active">
+                    <div class="cards-content card-active">
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod eius debitis libero maiores beatae quidem delectus eligendi. Perferendis facere itaque necessitatibus, quas dolor fugit quod architecto officia provident nisi autem!</p>
                     </div>
                 </div>
@@ -38,4 +41,10 @@
         })
     }
     document.getElementById('category').innerHTML = actualCategory
+    //lista de categorias
+    
+    function activeBar() {
+        const bar = document.querySelector(".commands-container-list");
+        bar.classList.toggle("commands-container-list-active");
+    }
 </script>

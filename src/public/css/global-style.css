@@ -196,7 +196,7 @@ body {
         order: 4;
     }
     .global-nav_loggin {
-        width: 40%;
+        width: 100px;
     }
     .global-nav_loggin p {
         display: none;
