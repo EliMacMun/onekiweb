@@ -32,7 +32,7 @@
 
     function toggleCategories(e){
         document.getElementById('category-name').innerHTML = e.children[0].innerHTML
-        fetch(`http://oneki.herokuapp.com/api/lang/en/cmd/${e.children[0].innerHTML}`).then(r => r.json()).then(category => {
+        fetch(`https://oneki.herokuapp.com/api/lang/en/cmd/${e.children[0].innerHTML}`).then(r => r.json()).then(category => {
             document.getElementById('cards').innerHTML = " "
             for(const command of category){
                 console.log(command);
