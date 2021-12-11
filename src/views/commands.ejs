@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="commands-container-info-content">
-            <div>
+            <div id="cards">
                 <% commands.filter(c=>c.category == categoires[0]).forEach(function(command) { %>
                 <div class="cards">
                     <h4><%=command.type=='slash'?'/':'>'%><%=command.name%></h4>
@@ -31,10 +31,19 @@
 <script>
 
     function toggleCategories(e){
-        console.log(e);
         document.getElementById('category-name').innerHTML = e.children[0].innerHTML
-        fetch('https://oneki.herokuapp.com/api/lang/en/cmd/Entertainment').then(r => r.json()).then(category => {
-            console.log(category);
+        fetch(`http://oneki.herokuapp.com/api/lang/en/cmd/${e.children[0].innerHTML}`).then(r => r.json()).then(category => {
+            document.getElementById('cards').innerHTML = " "
+            for(const command of category){
+                console.log(command);
+                document.getElementById('cards').innerHTML += `<div class="cards">
+                    <h4>${command.type=='slash'?'/':'>'}${command.name}</h4>
+                    <p>${command.description}</p>
+                    <div class="cards-content card-active">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod eius debitis libero maiores beatae quidem delectus eligendi. Perferendis facere itaque necessitatibus, quas dolor fugit quod architecto officia provident nisi autem!</p>
+                    </div>
+                </div>`
+            }
         })
     }
     
