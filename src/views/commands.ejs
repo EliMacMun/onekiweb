@@ -3,12 +3,12 @@
         <h2 class="commands-container-list-title">Categorias</h2>
         <ul class="commands-container-list-ul">
             <%const categoires = commands.map(c=>c.category).filter((e, i, a)=>a.indexOf(e)===i)%>
-            <li><a><%-categoires.join('</a></li>\n<li><a>')%></a></li>
+            <li onclick="toggleCategories(this)"><a><%-categoires.join('</a></li>\n<li onclick="toggleCategories(this)"><a>')%></a></li>
         </ul>
     </div>
     <div class="commands-container-info">
         <div class="commands-container-command-name">
-            <h2><%=categoires[0]%></h2>
+            <h2 id="category-name"><%=categoires[0]%></h2>
             <div class="commands-container-command-name_button">
                 <span onclick="activeBar()" class="material-icons md-32">reorder</span>
             </div>
@@ -29,19 +29,14 @@
     </div>
 </div>
 <script>
-    const ul = document.getElementsByClassName("category")
-    let actualCategory = ul[0].getElementsByTagName('a')[0].innerHTML
-    const updateCategory = (c) => {
-        ul
-    }
-    for (const ulElement of ul) {
-        if(ulElement.getElementsByTagName('a')[0].innerHTML != actualCategory) ulElement.classList.remove('commands__list-active')
-        ulElement.addEventListener('onclick', b => {
-            document.getElementById('category').innerHTML = actualCategory
+
+    function toggleCategories(e){
+        console.log(e);
+        document.getElementById('category-name').innerHTML = e.children[0].innerHTML
+        fetch('https://oneki.herokuapp.com/api/lang/en/cmd/Entertainment').then(r => r.json()).then(category => {
+            console.log(category);
         })
     }
-    document.getElementById('category').innerHTML = actualCategory
-    //lista de categorias
     
     function activeBar() {
         const bar = document.querySelector(".commands-container-list");
