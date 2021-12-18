@@ -5,7 +5,6 @@ const passport = require("../passport");
 
 router.get('/', async (req, res) => {
     if(!userbot) await getUserbot();
-    console.log(userbot)
     res.render('index', {
         title: 'Oneki Bot',
         active: 'inicio',

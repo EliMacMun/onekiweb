@@ -10,6 +10,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const admin = require("firebase-admin");
 const YouTubeNotifier = require('youtube-notification');
+const { WebhookClient } = require('discord.js');
 admin.initializeApp({
     credential: admin.credential.cert(require("../firebase-key.json")),
     databaseURL: 'https://neoarmy-18011.firebaseio.com'
@@ -54,7 +55,6 @@ const wss = new Server({ server });
 wss.on('connection', (ws, req) => {
     console.log(`Client ${req.socket?.remoteAddress} connected`);
     ws.on('message', (msg) => {
-        console.log('d')
         wss.clients.forEach((client) => {
             client.send(msg);
         });

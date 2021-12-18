@@ -2,6 +2,9 @@
 
 const { Router } = require('express');
 const router = Router();
+const path = require("path");
+const canvas = require("canvas");
+const fs = require("fs");
 
 module.exports = router;
 
@@ -40,6 +43,17 @@ router.get("/fakeDiscordMessage", async (req, res) => {
         Time: `hoy a las ${format24(new Date().getHours())}:${format24(new Date().getMinutes())}`
     });
 });
+
+router.get('/test', (req, res) => {
+    // img = canvas.loadImage(path.join(__dirname, '../public', 'tablero1.png'))
+    fs.readFile(path.join(__dirname, '../public', 'tablero1.png'), (err, data) => {
+        console.log(err)
+        console.log(data)
+        res.type('png');
+        res.end(data)
+    })
+    // res.sendFile(path.join(__dirname, '../public', 'tablero1.png'));
+})
 
 /**
  * cambia a formato de 24 horas
