@@ -3,20 +3,23 @@
         <h2 class="commands-container-list-title">Categorias</h2>
         <ul class="commands-container-list-ul">
             <%const categoires = commands.map(c=>c.category).filter((e, i, a)=>a.indexOf(e)===i)%>
-            <li><a><%-categoires.join('</a></li>\n<li><a>')%></a></li>
+            <li onclick="toggleCategories(this)"><a><%-categoires.join('</a></li>\n<li onclick="toggleCategories(this)"><a>')%></a></li>
         </ul>
     </div>
     <div class="commands-container-info">
         <div class="commands-container-command-name">
-            <h2><%=categoires[0]%></h2>
+            <h2 id="category-name"><%=categoires[0]%></h2>
+            <div class="commands-container-command-name_button">
+                <span onclick="activeBar()" class="material-icons md-32">reorder</span>
+            </div>
         </div>
         <div class="commands-container-info-content">
-            <div>
+            <div id="cards">
                 <% commands.filter(c=>c.category == categoires[0]).forEach(function(command) { %>
                 <div class="cards">
                     <h4><%=command.type=='slash'?'/':'>'%><%=command.name%></h4>
                     <p><%=command.description%></p>
-                    <div class="cards-active">
+                    <div class="cards-content card-active">
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod eius debitis libero maiores beatae quidem delectus eligendi. Perferendis facere itaque necessitatibus, quas dolor fugit quod architecto officia provident nisi autem!</p>
                     </div>
                 </div>
@@ -26,16 +29,26 @@
     </div>
 </div>
 <script>
-    const ul = document.getElementsByClassName("category")
-    let actualCategory = ul[0].getElementsByTagName('a')[0].innerHTML
-    const updateCategory = (c) => {
-        ul
-    }
-    for (const ulElement of ul) {
-        if(ulElement.getElementsByTagName('a')[0].innerHTML != actualCategory) ulElement.classList.remove('commands__list-active')
-        ulElement.addEventListener('onclick', b => {
-            document.getElementById('category').innerHTML = actualCategory
+
+    function toggleCategories(e){
+        document.getElementById('category-name').innerHTML = e.children[0].innerHTML
+        fetch(`https://oneki.herokuapp.com/api/lang/en/cmd/${e.children[0].innerHTML}`).then(r => r.json()).then(category => {
+            document.getElementById('cards').innerHTML = " "
+            for(const command of category){
+                console.log(command);
+                document.getElementById('cards').innerHTML += `<div class="cards">
+                    <h4>${command.type=='slash'?'/':'>'}${command.name}</h4>
+                    <p>${command.description}</p>
+                    <div class="cards-content card-active">
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod eius debitis libero maiores beatae quidem delectus eligendi. Perferendis facere itaque necessitatibus, quas dolor fugit quod architecto officia provident nisi autem!</p>
+                    </div>
+                </div>`
+            }
         })
     }
-    document.getElementById('category').innerHTML = actualCategory
+    
+    function activeBar() {
+        const bar = document.querySelector(".commands-container-list");
+        bar.classList.toggle("commands-container-list-active");
+    }
 </script>

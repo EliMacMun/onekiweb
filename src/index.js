@@ -9,10 +9,11 @@ const passport = require("./passport");
 const session = require("express-session");
 const flash = require("connect-flash");
 const admin = require("firebase-admin");
+var cors = require('cors')
 const YouTubeNotifier = require('youtube-notification');
 const { WebhookClient } = require('discord.js');
 admin.initializeApp({
-    credential: admin.credential.cert(require("../firebase-key.json")),
+    credential: admin.credential.cert(JSON.parse(process.env.FIREBASE_TOKEN)),
     databaseURL: 'https://neoarmy-18011.firebaseio.com'
 });
 fetch = require('node-fetch')
@@ -27,6 +28,7 @@ app.use(require('express-ejs-layouts'))
 app.set('layout', './layouts/index')
 
 //middlewares
+app.use(cors())
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(
