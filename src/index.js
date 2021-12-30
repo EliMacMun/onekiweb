@@ -55,12 +55,10 @@ app.use(passport.session());
 const { Server } = require('ws');
 const wss = new Server({ server });
 wss.on('connection', (ws, req) => {
-    console.log(`Client ${req.socket?.remoteAddress} connected`);
-    ws.on('message', (msg) => {
-        wss.clients.forEach((client) => {
-            client.send(msg);
-        });
-    })
+    console.log(`Client ${req.socket?.remoteAddress}/${req.headers['x-forwarded-for'].split(',')[0].trim()} connected`);
+    ws.on('message', (msg) => wss.clients.forEach((client) => {
+        if (client !== ws) client.send(msg);
+    }))
     ws.on('close', () => console.log('Client disconnected'));
 });
 // const socketIO = require('socket.io')
@@ -77,7 +75,7 @@ wss.on('connection', (ws, req) => {
 //youtube
 notifier = new YouTubeNotifier({
     hubCallback: 'https://oneki.herokuapp.com/api/notifications/youtube/',
-    secret: 'JOIN_MY_SERVER_OR_DIE'
+    secret: 'IDK'
 });
 
 
