@@ -32,7 +32,7 @@ router.get('/:lang/cmd/', (req, res) => {
     if (command) {
         // noinspection JSValidateTypes
         if (!cmd.find(c=>c.name===command||c.alias.includes(command))) res.status(500).json({
-            error: 'Category not found'
+            error: 'Command not found'
         });
         else res.json(cmd.find(c=>c.name===command||c.alias.includes(command)))
     } else res.json(cmd);
