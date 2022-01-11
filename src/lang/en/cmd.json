@@ -154,5 +154,17 @@
         "example": "suggest suggestion:'play amongus' channel:games",
         "module": "mts",
         "type": "slash"
+    },
+    {
+        "name": "help",
+        "description": "Show commands help",
+        "category": "Extra",
+        "alias": ["commands", "command", "comando", "commandos"],
+        "user_permisions": [],
+        "bot_permisions": [],
+        "use": "help <command>",
+        "example": "help help",
+        "module": "mts",
+        "type": "command"
     }
 ]
