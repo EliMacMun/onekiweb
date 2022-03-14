@@ -1,170 +1,284 @@
 [
     {
-        "name": "config set language",
-        "description": "Set language",
-        "category": "Config",
+        "name": "activitie",
+        "use": "activitie <game> [channel]",
+        "description": "Play in the voice channel",
+        "category": "Entertainment",
         "alias": [],
-        "user_permisions": ["ADMINISTRATOR"],
-        "bot_permisions": [],
-        "use": "config set language [lang]",
-        "example": "config set language lang:es",
+        "user_permisions": [],
+        "example": "/activitie `game:Watch Together` `channel:#a-channel`",
+        "module": "mts",
+        "type": "slash"
+    },
+    {
+        "name": "config set language",
+        "use": "config set language <lang>",
+        "description": "Set language",
+        "category": "Settings",
+        "alias": [],
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/config set language `lang:Español`",
         "module": "mts",
         "type": "slash"
     },
     {
         "name": "config set prefix",
+        "use": "config set prefix <prefix>",
         "description": "Set a new unique prefix",
-        "category": "Config",
+        "category": "Settings",
         "alias": [],
-        "user_permisions": ["ADMINISTRATOR"],
-        "bot_permisions": [],
-        "use": "config set prefix [prefix]",
-        "example": "config set prefix prefix:!",
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/config set prefix prefix:!!",
         "module": "mts",
         "type": "slash"
     },
     {
         "name": "config set suggest_channel",
+        "use": "config set suggest_channel <channel>",
         "description": "Set a unique suggest channel",
-        "category": "Config",
+        "category": "Settings",
         "alias": [],
-        "user_permisions": ["ADMINISTRATOR", "MANAGE_CHANNELS"],
-        "bot_permisions": [],
-        "use": "config set suggest_channel [#channel]",
-        "example": "config set suggest_channel channel:#sugggest",
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/config set suggest_channel `channel:#a-channel`",
         "module": "mts",
         "type": "slash"
     },
     {
         "name": "config add prefix",
+        "use": "config add prefix <prefix>",
         "description": "Add a new pfrefix to the bot",
-        "category": "Config",
+        "category": "Settings",
         "alias": [],
-        "user_permisions": ["ADMINISTRATOR"],
-        "bot_permisions": [],
-        "use": "config add prefix [prefix]",
-        "example": "config add prefix prefix:!",
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/config add prefix prefix:!!",
         "module": "mts",
         "type": "slash"
     },
     {
         "name": "config add suggest_channel",
+        "use": "config add suggest_channel <channel> <alias> [default]",
         "description": "Add a new suggest channel",
-        "category": "Config",
+        "category": "Settings",
         "alias": [],
-        "user_permisions": ["ADMINISTRATOR", "MANAGE_CHANNELS"],
-        "bot_permisions": [],
-        "use": "config add suggest_channel #channel",
-        "example": "config add suggest_channel channel:#sugggest",
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/config add suggest_channel `channel:#a-channel` alias:game default:false",
         "module": "mts",
         "type": "slash"
     },
     {
         "name": "config remove prefix",
-        "description": "Remove prefix",
-        "category": "Config",
-        "alias": [],
-        "user_permisions": ["ADMINISTRATOR"],
-        "bot_permisions": [],
         "use": "config remove prefix [prefix]",
-        "example": "config remove prefix prefix:?",
+        "description": "Remove prefix",
+        "category": "Settings",
+        "alias": [],
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/config remove prefix `prefix:?`",
         "module": "mts",
         "type": "slash"
     },
     {
         "name": "config remove suggest_channel",
+        "use": "config remove suggest_channel",
         "description": "Remove suggestion channel",
-        "category": "Config",
+        "category": "Settings",
         "alias": [],
-        "user_permisions": ["ADMINISTRATOR", "MANAGE_CHANNELS"],
-        "bot_permisions": [],
-        "use": "config remove suggest_channel [alias]",
-        "example": "config remove suggest_channel alias:games",
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/config remove suggest_channel",
+        "module": "mts",
+        "type": "slash"
+    },
+    {
+        "name": "config remove log",
+        "use": "config remove log <logname>",
+        "description": "Remove log channel",
+        "category": "Settings",
+        "alias": [],
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/config remove log `logname:message_update`",
         "module": "mts",
         "type": "slash"
     },
     {
         "name": "config log message_update",
+        "use": "config log message_update <channel>",
         "description": "Config message_update logs",
-        "category": "Config",
+        "category": "Settings",
         "alias": [],
-        "user_permisions": ["ADMINISTRATOR", "MANAGE_MESSAGES"],
-        "bot_permisions": [],
-        "use": "config log message_update [#channel]",
-        "example": "config log message_update channel:#messages-edited",
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/config log message_update `channel:#a-channel`",
         "module": "mts",
         "type": "slash"
     },
     {
         "name": "config log message_delete",
+        "use": "config log message_delete <channel>",
         "description": "Config message_delete logs",
-        "category": "Config",
+        "category": "Settings",
         "alias": [],
-        "user_permisions": ["ADMINISTRATOR", "MANAGE_MESSAGES"],
-        "bot_permisions": [],
-        "use": "config log message_delete [#channel]",
-        "example": "config log message_delete channel:#messages-deleted",
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/config log message_delete `channel:#a-channel`",
         "module": "mts",
         "type": "slash"
     },
     {
-        "name": "activitie",
-        "description": "Play in the voice channel",
-        "category": "Entretainment",
+        "name": "config log message_attachment",
+        "use": "config log message_attachment <channel>",
+        "description": "Config message_attachment logs",
+        "category": "Settings",
         "alias": [],
-        "user_permisions": [],
-        "bot_permisions": [],
-        "use": "activitie [game]",
-        "example": "activitie game:'Watch Together'",
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/config log message_attachment `channel:#a-channel`",
         "module": "mts",
         "type": "slash"
     },
     {
-        "name": "poll make",
-        "description": "Make a poll",
-        "category": "Utils",
+        "name": "config export file",
+        "use": "config export file",
+        "description": "Export the config file",
+        "category": "Settings",
+        "alias": [],
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/config export file",
+        "module": "mts",
+        "type": "slash"
+    },
+    {
+        "name": "config import file",
+        "use": "config import file <json>",
+        "description": "Export the config file",
+        "category": "Settings",
+        "alias": [],
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/config import file json:file_config.json",
+        "module": "mts",
+        "type": "slash"
+    },
+    {
+        "name": "info member",
+        "use": "info member [member]",
+        "description": "display member info",
+        "category": "Settings",
         "alias": [],
         "user_permisions": [],
-        "bot_permisions": [],
-        "use": "poll make [context] <title> <block_choice> <multiple_choices> <show_results> <option_n>",
-        "example": "poll make context:'Select a game' title:'New game' block_choice:false multiple_choices:true show_results:true option_1:Minecraft option_1:Fornite",
+        "example": "/info  member member:@Oneki",
+        "module": "mts",
+        "type": "slash"
+    },
+    {
+        "name": "minesweeper",
+        "use": "minesweeper",
+        "description": "display a minesweeper game",
+        "category": "Entertainment",
+        "alias": [],
+        "user_permisions": [],
+        "example": "/minesweeper",
         "module": "mts",
         "type": "slash"
     },
     {
         "name": "poll finalize",
+        "use": "poll finalize <id>",
         "description": "Finish a poll",
-        "category": "Utils",
+        "category": "Util",
         "alias": [],
-        "user_permisions": [],
-        "bot_permisions": [],
-        "use": "poll finalize [id]",
-        "example": "poll finalize id:s5gs4dfs",
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/poll  finalize `id:ky6kqb4o`",
+        "module": "mts",
+        "type": "slash"
+    },
+    {
+        "name": "poll make",
+        "use": "poll make <context> [title] [block_choice] [multiple_choices] [show_results] [option_1] [...] [option_20]",
+        "description": "Make a poll",
+        "category": "Util",
+        "alias": [],
+        "user_permisions": [
+            "ADMINISTRATOR"
+        ],
+        "example": "/poll  make context:que juego deberia jugar? title:Nuevo Juego block_choice:false multiple_choices:false show_results:true option_1:Minecraft option_2:COD option_3:Otro option_4: option_5: option_6: option_7: option_8: option_9: option_10: option_11: option_12: option_13: option_14: option_15: option_16: option_17: option_18: option_19: option_20:",
         "module": "mts",
         "type": "slash"
     },
     {
         "name": "suggest",
+        "use": "suggest <suggestion>",
         "description": "Make a suggestion",
-        "category": "Extra",
+        "category": "Util",
         "alias": [],
         "user_permisions": [],
-        "bot_permisions": [],
-        "use": "suggest [suggestion] <channel>",
-        "example": "suggest suggestion:'play amongus' channel:games",
+        "example": "/suggest suggestion:un #general-2",
         "module": "mts",
         "type": "slash"
     },
     {
-        "name": "help",
-        "description": "Show commands help",
-        "category": "Extra",
-        "alias": ["commands", "command", "comando", "commandos"],
+        "name": "emoji",
+        "use": "emoji",
+        "description": "Get the emoji as a URL",
+        "category": "Util",
+        "alias": [
+            "emote",
+            "emogi"
+        ],
         "user_permisions": [],
-        "bot_permisions": [],
-        "use": "help <command>",
-        "example": "help help",
+        "example": ">emoji :derp:",
         "module": "mts",
-        "type": "command"
+        "type": "old"
+    },
+    {
+        "name": "help",
+        "use": "help",
+        "description": "show command help",
+        "category": "Util",
+        "alias": [
+            "commands",
+            "command",
+            "comando",
+            "commandos"
+        ],
+        "user_permisions": [],
+        "example": ">help",
+        "module": "mts",
+        "type": "old"
+    },
+    {
+        "name": "uno",
+        "use": "uno",
+        "description": "Generate a uno game",
+        "category": "Entertainment",
+        "alias": [
+            "1"
+        ],
+        "user_permisions": [],
+        "example": ">uno",
+        "module": "mts",
+        "type": "old"
     }
 ]
