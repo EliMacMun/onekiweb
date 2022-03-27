@@ -140,4 +140,15 @@ body::-webkit-scrollbar-thumb {
         text-decoration: underline;
         cursor: pointer; }
 
+@media screen and (max-width: 322px) {
+  .footer {
+    background-size: cover;
+    height: max-content; }
+    .footer .content .title h1 {
+      font-size: 3.5rem;
+      margin-bottom: 0; }
+    .footer .content .links {
+      flex-direction: column;
+      text-align: center; } }
+
 /*# sourceMappingURL=global-style.css.map */
