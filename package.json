@@ -31,7 +31,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index",
     "dev": "nodemon src/index",
-    "sass": "node-sass --watch src/public/scss/bootstrap.scss -o src/public/css"
+    "sass": "node-sass --watch /src/public/scss/main.scss -o /src/public/css/global-style.css"
   },
   "repository": {
     "type": "git",

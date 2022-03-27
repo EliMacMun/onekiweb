@@ -1,31 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="icon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
-    <title><%-title%></title>
-    <!--Web Style-->
-    <link rel="stylesheet" href="css/global-style.css">
-    <link rel="stylesheet" href="css/main.css">
-    <%if(['commands'].includes(route)){%>
-        <link rel="stylesheet" href="css/commands_global-style.css">
-    <%}%>
-    <!--Google fonts-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oneki Discord Bot</title>
+    <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <!-- css styles -->
+    <link rel="stylesheet" href="css/global-style.css">
+    <link rel="stylesheet" href="css/main-page-style.css">
 </head>
-<body class="bg-dark">
-    <!--NavBar-->
-    <%- include('../partials/nav.ejs'); %>
-    <!--Body-->
-    <%-body%>
-    <!--Footer-->
-    <%- include('../partials/footer.ejs'); %>
-<!--    <script src="/socket.io/socket.io.js"></script>-->
-<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
+<body class="body">
+    <!-- barra de navegacion -->
+    <%- include("../partials/nav.ejs"); %> 
+    <!-- contenido principal -->
+    <%- include("../index.ejs") %> 
+    <!-- footer -->
+    <%- include("../partials/footer.ejs") %> 
+    <script>
+        function activeButton() {
+            const linkList = document.getElementById('nav_bar-list')
+            linkList.classList.toggle('mobileListActive')
+        }
+        let userBrowser = navigator.userAgent
+        if (/Firefox/.test(userBrowser)){
+            const globalNavBar = document.getElementById('global_nav-bar');
+            globalNavBar.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
+        }
+    </script>
 </body>
 </html>

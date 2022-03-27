@@ -1,36 +1,17 @@
-<header class="global-nav-content">
-    <div class="global-nav_bot-name">
-        <h1 onclick="redirect('/')">Oneki Bot</h1>
-    </div>
-    <nav class="global-nav_list">
-        <ul>
-            <li onclick="redirect('/')">Inicio</li>
-             <li onclick="redirect('/commands')">Comandos</li>
-            <!--                <li onclick="redirect('/support')">Soporte</li>-->
-            <li onclick="redirect('/invite')">Invitar</li>
+<header class="global_nav-bar-container">
+    <nav id="global_nav-bar" class="global_nav-bar">
+        <h1 class="global_nav-bar_bot-name">Oneki Bot</h1>
+        <ul id="nav_bar-list" class="global_nav-bar_list">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Comandos</a></li>
+            <li><a href="#">Soporte</a></li>
         </ul>
-    </nav>
-    <div class="global-nav_loggin">
-        <%if(user) {%>
-            <img src="<%=`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.webp`%>" alt="profile picture" srcset="">
-            <p class="user-name"><%=user.username%></p>
-        <%} else {%>
-            <img onclick="redirect('/login')" src="https://cdn.discordapp.com/attachments/877011670646542410/914188351098208366/oneki.webp" alt="" srcset="">
-            <p onclick="redirect('/login')" class='user-name'>Iniciar sesión</p>
-        <%}%>
-        <div class="global-nav_button">
-            <span onclick="active()" class="material-icons md-32">reorder</span>
+        <div class="global_nav_login">
+            <p>Iniciar sesión</p>
+            <img src="/assets/User Avatar.png" alt="">
+            <div onclick="activeButton()" class="global_nav-mobile_open-menu">
+                <img  id="burguer" src="/assets/Burger.png" alt="">
+            </div>
         </div>
-    </div>
+    </nav>
 </header>
-<script>
-    function redirect(route){
-        location.href = location.origin+route
-    }
-    function active(){
-        const activeList = document.querySelector('.global-nav_list');
-        const activeUser = document.querySelector('.user-name');
-        activeList.classList.toggle('active');
-        activeUser.classList.toggle('active');
-    }
-</script>
