@@ -123,8 +123,10 @@ body::-webkit-scrollbar-thumb {
   background-position: center bottom;
   background-repeat: no-repeat; }
   .footer .content {
-    width: 100%;
-    justify-content: center; }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%; }
     .footer .content .title h1 {
       font-weight: 500;
       font-size: 64px;

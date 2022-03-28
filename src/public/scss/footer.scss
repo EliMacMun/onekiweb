@@ -9,9 +9,12 @@
     background-position: center bottom;
     background-repeat: no-repeat;
     .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         width: 100%;
         // flex-direction: column;
-        justify-content: center;
+        // justify-content: center;
         .title {
             h1 {
                 font-weight: 500;
