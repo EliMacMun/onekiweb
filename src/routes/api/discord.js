@@ -1,7 +1,5 @@
-const {Router} = require("express");
+import { Router } from 'express'
 const router = Router();
-
-module.exports = router;
 
 router.get('/bot', (req, res) => {
     fetch('https://discord.com/api/users/@me', {
@@ -26,3 +24,5 @@ router.get('/:lang/cmd/', (req, res) => {
         else res.json(cmd.find(c=>c.name===command||c.alias.includes(command)))
     } else res.json(cmd);
 });
+
+export { router as discord }

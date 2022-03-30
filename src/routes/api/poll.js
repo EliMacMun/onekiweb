@@ -1,5 +1,4 @@
-'use strict';
-const { Router } = require('express');
+import { Router } from 'express'
 const router = Router();
 
 router.post('/', (req, res) => {
@@ -35,4 +34,4 @@ router.post('/', (req, res) => {
     });
 });
 
-module.exports = router;
+export { router as poll }

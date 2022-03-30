@@ -1,7 +1,5 @@
-const {Router} = require("express");
-const router = Router();
-
-module.exports = router;
+import { Router } from 'express'
+const router = Router()
 
 router.get('/:lang/cmd/:category', (req, res) => {
     const { lang, category } = req.params;
@@ -37,3 +35,5 @@ router.get('/:lang/cmd/', (req, res) => {
         else res.json(cmd.find(c=>c.name===command||c.alias.includes(command)))
     } else res.json(cmd);
 });
+
+export { router as lang }

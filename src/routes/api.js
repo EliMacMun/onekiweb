@@ -1,30 +1,31 @@
 // noinspection JSUnresolvedVariable
 
-const { Router } = require('express');
-const router = Router();
-const path = require("path");
-const canvas = require("canvas");
-const fs = require("fs");
-
-module.exports = router;
+import { Router } from 'express'
+import { poll } from './api/poll.js'
+import { webhook } from './api/webhook.js'
+import { discord } from './api/discord.js'
+import { lang } from './api/lang.js'
+import { notifications } from './api/notifications.js'
+import { moderation } from './api/moderation.js'
+const router = Router()
 
 //POLL
-router.use('/poll', require('./api/poll'))
+router.use('/poll', poll)
 
 //WEBHOOK
-router.use('/webhook', require('./api/webhook'))
+router.use('/webhook', webhook)
 
 //discord
-router.use('/discord', require('./api/discord'));
+router.use('/discord', discord);
 
 //lang
-router.use('/lang', require('./api/lang'));
+router.use('/lang', lang)
 
 //notifications
-router.use('/notifications', require('./api/notifications'));
+router.use('/notifications', notifications);
 
 //moderation
-router.use('/moderation', require('./api/moderation'))
+router.use('/moderation', moderation)
 
 //fakeDiscordMessage
 router.get("/fakeDiscordMessage", async (req, res) => {
@@ -43,17 +44,6 @@ router.get("/fakeDiscordMessage", async (req, res) => {
         Time: `hoy a las ${format24(new Date().getHours())}:${format24(new Date().getMinutes())}`
     });
 });
-
-router.get('/test', (req, res) => {
-    // img = canvas.loadImage(path.join(__dirname, '../public', 'tablero1.png'))
-    fs.readFile(path.join(__dirname, '../public', 'tablero1.png'), (err, data) => {
-        console.log(err)
-        console.log(data)
-        res.type('png');
-        res.end(data)
-    })
-    // res.sendFile(path.join(__dirname, '../public', 'tablero1.png'));
-})
 
 /**
  * cambia a formato de 24 horas
@@ -79,3 +69,5 @@ function userMention(user) {
 function rolesMention(role) {
     return `<span class="roleMention-2Bj0ju desaturate-qhyunI wrapper-3WhCwL mention">@${role}</span>`
 }
+
+export { router as api }

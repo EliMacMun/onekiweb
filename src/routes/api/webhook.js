@@ -1,6 +1,5 @@
-'use strict';
-const { Router } = require('express');
-const {WebhookClient, MessageEmbed} = require("discord.js");
+import { Router } from 'express'
+import { WebhookClient, MessageEmbed } from 'discord.js'
 const router = Router();
 
 router.post('/heroku', (req, res) => {
@@ -21,4 +20,4 @@ router.post('/heroku', (req, res) => {
     })
 });
 
-module.exports = router;
+export { router as webhook }

@@ -1,7 +1,5 @@
-const {Router} = require("express");
-const router = Router();
-
-module.exports = router;
+import { Router } from 'express'
+const router = Router()
 
 router.use('/youtube', notifier.listener())
 // router.get('/youtube/test', (req, res) => {
@@ -25,3 +23,5 @@ router.use('/youtube', notifier.listener())
 //         code: 200
 //     })
 // })
+
+export { router as notifications }

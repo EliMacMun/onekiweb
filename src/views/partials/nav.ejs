@@ -1,14 +1,14 @@
 <header class="global_nav-bar-container">
     <nav id="global_nav-bar" class="global_nav-bar">
-        <h1 class="global_nav-bar_bot-name">Oneki Bot</h1>
+        <h1 onclick="redirect('/')" class="global_nav-bar_bot-name">Oneki Bot</h1>
         <ul id="nav_bar-list" class="global_nav-bar_list">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Comandos</a></li>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/commands">Comandos</a></li>
             <li><a href="#">Soporte</a></li>
         </ul>
         <div class="global_nav_login">
-            <p>Iniciar sesión</p>
-            <img src="/assets/User Avatar.png" alt="">
+            <p onclick=<%- user ? "" : "redirect('/login')" %>><%- user ? user.username : 'Iniciar sesión' %> </p>
+            <img src=<%- !user ? "/assets/User_Avatar.png" : "https://cdn.discordapp.com/avatars/"+user.id+"/"+user.avatar+"."+(user.avatar.startsWith('a_')?".gif":"png") %> alt="user avatar">
             <div onclick="activeButton()" class="global_nav-mobile_open-menu">
                 <img  id="burguer" src="/assets/Burger.png" alt="">
             </div>

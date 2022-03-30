@@ -1,7 +1,5 @@
-const {Router} = require("express");
-const router = Router();
-
-module.exports = router;
+import { Router } from 'express'
+const router = Router()
 
 router.post("/ban", async (req, res) => {
     try {
@@ -206,3 +204,5 @@ router.get("/userbancount", async (req, res) => {
 router.get("/serverban", async (req, res) => {
     res.redirect("/");
 });
+
+export { router as moderation }
