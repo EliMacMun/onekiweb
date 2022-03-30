@@ -50,6 +50,7 @@
     "node": "16.6.1"
   },
   "eslintConfig": {
-    "extends": "./node_modules/standard/eslintrc.json"
+    "extends": "./node_modules/standard/eslintrc.json",
+    "tabWidth": 4
   }
 }

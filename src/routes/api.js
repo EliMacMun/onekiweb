@@ -7,54 +7,62 @@ import { discord } from './api/discord.js'
 import { lang } from './api/lang.js'
 import { notifications } from './api/notifications.js'
 import { moderation } from './api/moderation.js'
+import { commands } from './api/commands.js'    
 const router = Router()
 
-//POLL
+// COMMANDS
+router.use('/commands', commands)
+
+// POLL
 router.use('/poll', poll)
 
-//WEBHOOK
+// WEBHOOK
 router.use('/webhook', webhook)
 
-//discord
-router.use('/discord', discord);
+// discord
+router.use('/discord', discord)
 
-//lang
+// lang
 router.use('/lang', lang)
 
-//notifications
-router.use('/notifications', notifications);
+// notifications
+router.use('/notifications', notifications)
 
-//moderation
+// moderation
 router.use('/moderation', moderation)
 
-//fakeDiscordMessage
-router.get("/fakeDiscordMessage", async (req, res) => {
+// fakeDiscordMessage
+router.get('/fakeDiscordMessage', async (req, res) => {
     // console.log(req.query);
-    let text = (req.query.text ?? "");
-    if (req.query.mentions) for (const match of text.match(/&#60;@!?\d{17,19}&#62;/g)??[]) text = text.replace(match, userMention(JSON.parse(req.query.mentions)[match.match(/\d{17,19}/g)[0]]));
-    if (req.query.roles) for (const match of text.match(/&#60;@&\d{17,19}&#62;/g)??[]) text = text.replace(match, rolesMention(JSON.parse(req.query.roles)[match.match(/\d{17,19}/g)[0]]));
+    let text = req.query.text ?? ''
+    if (req.query.mentions)
+        for (const match of text.match(/&#60;@!?\d{17,19}&#62;/g) ?? [])
+            text = text.replace(match, userMention(JSON.parse(req.query.mentions)[match.match(/\d{17,19}/g)[0]]))
+    if (req.query.roles)
+        for (const match of text.match(/&#60;@&\d{17,19}&#62;/g) ?? [])
+            text = text.replace(match, rolesMention(JSON.parse(req.query.roles)[match.match(/\d{17,19}/g)[0]]))
     res.render('fakeDiscordMessage', {
         layout: false,
-        UserColor: req.query.color ? `#${req.query.color}` : "#b9bbbe",
-        AvatarUrl: req.query.avatar ?? `https://cdn.discordapp.com/embed/avatars/${Math.floor(Math.random()*6)}.png`,
-        UserName: req.query.user ?? "user",
+        UserColor: req.query.color ? `#${req.query.color}` : '#b9bbbe',
+        AvatarUrl: req.query.avatar ?? `https://cdn.discordapp.com/embed/avatars/${Math.floor(Math.random() * 6)}.png`,
+        UserName: req.query.user ?? 'user',
         Text: text,
         Bot: req.query.bot === '1',
         Verified: req.query.verified === '1' && req.query.bot === '1',
         Time: `hoy a las ${format24(new Date().getHours())}:${format24(new Date().getMinutes())}`
-    });
-});
+    })
+})
 
 /**
  * cambia a formato de 24 horas
  * @param hour
  */
 function format24(hour) {
-    let s = hour.toString()
+    const s = hour.toString()
     if (s.length === 1) {
-        return `0${s}`;
+        return `0${s}`
     } else {
-        return hour;
+        return hour
     }
 }
 

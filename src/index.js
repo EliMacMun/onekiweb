@@ -9,6 +9,7 @@ import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 import { api } from './routes/api.js'
+import Socket from 'ws'
 
 config()
 const app = express()
@@ -46,6 +47,11 @@ app.use(express.static(join(resolve(process.cwd()), 'src', 'public')))
 const server = app.listen(app.get('port'), () => {
     console.log(`listen on http://localhost:${app.get('port')}`)
 })
+
+//routes
+app.use('/', web)
+app.use("/api", api)
+
 // app.use(flash());
 // app.use(
 //     session({
@@ -59,24 +65,14 @@ const server = app.listen(app.get('port'), () => {
 
 // //socket
 // const { Server } = require('ws');
-// const wss = new Server({ server });
-// wss.on('connection', (ws, req) => {
-//     console.log(`Client ${req.socket?.remoteAddress}/${req.headers['x-forwarded-for'].split(',')[0].trim()} connected`);
-//     ws.on('message', (msg) => wss.clients.forEach((client) => {
-//         if (client !== ws) client.send(msg);
-//     }))
-//     ws.on('close', () => console.log('Client disconnected'));
-// });
-// // const socketIO = require('socket.io')
-// // const io = socketIO(server);
-// // io.on('connection', (socket) => {
-// //     console.log('Client connected');
-// //     socket.onAny((event, ...args) => {
-// //         console.log(event, args);
-// //         io.emit(event, args);
-// //       });
-// //     socket.on('disconnect', () => console.log('Client disconnected'));
-// // });
+const socket = new Socket.Server({ server })
+socket.on('connection', (ws, req) => {
+    console.log(`Client ${req.socket?.remoteAddress}/${req.headers['x-forwarded-for'].split(',')[0].trim()} connected`)
+    ws.on('message', message => socket.clients.forEach(client => {
+        if (client !== ws) client.send(message)
+    }))
+    socket.on('close', () => console.log(`Client ${req.socket?.remoteAddress}/${req.headers['x-forwarded-for'].split(',')[0].trim()} disconnected`))
+})
 
 // //youtube
 // notifier = new YouTubeNotifier({
@@ -110,22 +106,4 @@ const server = app.listen(app.get('port'), () => {
 //     // );
 // });
 
-// notifier.subscribe('UCiVty0vnYbswLGhmWTp6FPA');
-
-// //routes
-app.use('/', web)
-app.use("/api", api);
-// // console.log('************************\n', process.env, '\n************************');
-
-// getUserbot = function() {
-//     return new Promise((resolve, reject) => {
-//         fetch('https://discord.com/api/v9/users/@me', {
-//             headers: {
-//                 Authorization: 'Bot '+process.env.TOKEN_DISCORD
-//             }
-//         }).then(r=>r.json()).then(r=> {
-//             global.userbot = r
-//             resolve(r)
-//         })
-//     })
-// }
+// notifier.subscribe('UCiVty0vnYbswLGhmWTp6FPA')
