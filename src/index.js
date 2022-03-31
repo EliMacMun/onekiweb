@@ -1,14 +1,18 @@
 // // noinspection NodeCoreCodingAssistance,JSCheckFunctionSignatures
 import { cert, initializeApp } from 'firebase-admin/app'
 import { getFirestore } from 'firebase-admin/firestore'
+import YouTubeNotifier from 'youtube-notification'
 import eejsl from 'express-ejs-layouts'
+import session from 'express-session'   
 import { web } from './routes/web.js'
+import { api } from './routes/api.js'
 import { join, resolve } from 'path'
+import flash from 'connect-flash'
 import { config } from 'dotenv'
+import passport from 'passport'
 import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
-import { api } from './routes/api.js'
 import Socket from 'ws'
 
 config()
@@ -30,12 +34,6 @@ app.use(eejsl)
 app.set('layout', 'layouts/layout')
 
 // const morgan = require("morgan");
-// const passport = require("./passport");
-// const session = require("express-session");
-// const YouTubeNotifier = require('youtube-notification');
-// const { WebhookClient } = require('discord.js');
-
-// //settings
 
 //middlewares
 app.use(cors())
@@ -52,19 +50,16 @@ const server = app.listen(app.get('port'), () => {
 app.use('/', web)
 app.use("/api", api)
 
-// app.use(flash());
-// app.use(
-//     session({
-//         secret: "loggindiscord",
-//         resave: false,
-//         saveUninitialized: false,
-//     })
-// );
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(flash())
+app.use(session({
+    secret: "thisIsASecretShhh",
+    resave: false,
+    saveUninitialized: false,
+}))
+app.use(passport.initialize())
+app.use(passport.session())
 
-// //socket
-// const { Server } = require('ws');
+//socket
 const socket = new Socket.Server({ server })
 socket.on('connection', (ws, req) => {
     console.log(`Client ${req.socket?.remoteAddress}/${req.headers['x-forwarded-for'].split(',')[0].trim()} connected`)
@@ -74,36 +69,32 @@ socket.on('connection', (ws, req) => {
     socket.on('close', () => console.log(`Client ${req.socket?.remoteAddress}/${req.headers['x-forwarded-for'].split(',')[0].trim()} disconnected`))
 })
 
-// //youtube
-// notifier = new YouTubeNotifier({
-//     hubCallback: 'https://oneki.herokuapp.com/api/notifications/youtube/',
-//     secret: 'IDK'
-// });
+//youtube
+global.notifier = new YouTubeNotifier({
+    hubCallback: 'https://oneki.herokuapp.com/api/notifications/youtube/',
+    secret: 'IDK'
+});
 
-// notifier.on('notified', data => {
-//     db.collection('notifications').doc('youtube').get().then(snap => {
-//         if(snap.exists) {
-//             snap.data()[data.channel.id].map(id => {
-//                 wss.clients.forEach((client) => {
-//                     client.send(JSON.stringify({
-//                         event: 'new_yt_video',
-//                         server: id,
-//                         value: data
-//                     }));
-//                 });
-//             })
-//         }
-//     })
-//     wss.clients.forEach((client) => {
-//         client.send(JSON.stringify({
-//             event: 'new_yt_video',
-//             value: data
-//         }));
-//     });
-//     // console.log(`**${data.channel.name}** just uploaded a new video - **${data.video.link}**`);
-//     // client.channels.cache.get(SERVER_CHANNEL_ID).send(
-//     //     `**${data.channel.name}** just uploaded a new video - **${data.video.link}**`
-//     // );
-// });
+notifier.on('notified', data => {
+    db.collection('notifications').doc('youtube').get().then(snap => {
+        if(snap.exists) {
+            snap.data()[data.channel.id].map(id => {
+                wss.clients.forEach((client) => {
+                    client.send(JSON.stringify({
+                        event: 'new_yt_video',
+                        server: id,
+                        value: data
+                    }));
+                });
+            })
+        }
+    })
+    wss.clients.forEach((client) => {
+        client.send(JSON.stringify({
+            event: 'new_yt_video',
+            value: data
+        }));
+    });
+});
 
-// notifier.subscribe('UCiVty0vnYbswLGhmWTp6FPA')
+notifier.subscribe('UCiVty0vnYbswLGhmWTp6FPA')

@@ -3,7 +3,6 @@
 import { Router } from 'express'
 import { poll } from './api/poll.js'
 import { webhook } from './api/webhook.js'
-import { discord } from './api/discord.js'
 import { lang } from './api/lang.js'
 import { notifications } from './api/notifications.js'
 import { moderation } from './api/moderation.js'
@@ -18,9 +17,6 @@ router.use('/poll', poll)
 
 // WEBHOOK
 router.use('/webhook', webhook)
-
-// discord
-router.use('/discord', discord)
 
 // lang
 router.use('/lang', lang)
