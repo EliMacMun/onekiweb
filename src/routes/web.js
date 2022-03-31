@@ -1,6 +1,5 @@
 import { Router } from 'express'
 const router = Router()
-import cmds from '../lang/en/cmd.json' assert { type: 'json' }
 import { passport } from '../passport.js'
 
 router.get('/', async (req, res) => {

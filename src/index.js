@@ -3,9 +3,7 @@ import { cert, initializeApp } from 'firebase-admin/app'
 import { getFirestore } from 'firebase-admin/firestore'
 import YouTubeNotifier from 'youtube-notification'
 import eejsl from 'express-ejs-layouts'
-import session from 'express-session'   
-import { web } from './routes/web.js'
-import { api } from './routes/api.js'
+import session from 'express-session' 
 import { join, resolve } from 'path'
 import flash from 'connect-flash'
 import { config } from 'dotenv'
@@ -13,7 +11,7 @@ import passport from 'passport'
 import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
-import Socket from 'ws'
+import { WebSocketServer } from 'ws'
 
 config()
 const app = express()
@@ -46,10 +44,6 @@ const server = app.listen(app.get('port'), () => {
     console.log(`listen on http://localhost:${app.get('port')}`)
 })
 
-//routes
-app.use('/', web)
-app.use("/api", api)
-
 app.use(flash())
 app.use(session({
     secret: "thisIsASecretShhh",
@@ -60,7 +54,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 //socket
-const socket = new Socket.Server({ server })
+const socket = new WebSocketServer({ server })
 socket.on('connection', (ws, req) => {
     console.log(`Client ${req.socket?.remoteAddress}/${req.headers['x-forwarded-for'].split(',')[0].trim()} connected`)
     ws.on('message', message => socket.clients.forEach(client => {
@@ -98,3 +92,11 @@ notifier.on('notified', data => {
 });
 
 notifier.subscribe('UCiVty0vnYbswLGhmWTp6FPA')
+
+//routes
+import('./routes/web.js').then(({web}) => {
+    app.use('/', web)
+})
+import('./routes/api.js').then(({api}) => {
+    app.use("/api", api)
+})

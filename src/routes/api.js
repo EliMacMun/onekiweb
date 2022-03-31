@@ -3,7 +3,6 @@
 import { Router } from 'express'
 import { poll } from './api/poll.js'
 import { webhook } from './api/webhook.js'
-import { lang } from './api/lang.js'
 import { notifications } from './api/notifications.js'
 import { moderation } from './api/moderation.js'
 import { commands } from './api/commands.js'    
@@ -17,9 +16,6 @@ router.use('/poll', poll)
 
 // WEBHOOK
 router.use('/webhook', webhook)
-
-// lang
-router.use('/lang', lang)
 
 // notifications
 router.use('/notifications', notifications)

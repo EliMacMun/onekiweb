@@ -14,3 +14,5 @@ router.get('/', (req, res) => {
 router.get('/categories', (req, res) => {
     res.json(cmd.map(c=>c.category).filter((e, i, a)=>a.indexOf(e)===i))
 })
+
+export { router as commands }

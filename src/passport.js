@@ -10,7 +10,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((obj, done) => {
     done(null, obj)
 })
-console.log(process.env);
+
 passport.use(
     new Strategy(
         {
