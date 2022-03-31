@@ -60,7 +60,7 @@ socket.on('connection', (ws, req) => {
     ws.on('message', message => socket.clients.forEach(client => {
         if (client !== ws) client.send(message)
     }))
-    socket.on('close', () => console.log(`Client ${req.socket?.remoteAddress}/${req.headers['x-forwarded-for'].split(',')[0].trim()} disconnected`))
+    ws.on('close', () => console.log(`Client ${req.socket?.remoteAddress}/${req.headers['x-forwarded-for'].split(',')[0].trim()} disconnected`))
 })
 
 //youtube
