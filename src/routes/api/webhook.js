@@ -30,8 +30,8 @@ router.post('/heroku/release', (req, res) => {
                                 inline: true
                             },
                             {
-                                name: 'Commit',
-                                value: `\`\`\`\n[${data.slug.commit}]\n${data.slug.commit_description}\n\`\`\``,
+                                name: 'Status',
+                                value: `\`\`\`\n${data.status}\n\`\`\``,
                                 inline: true
                             },
                             {
@@ -40,10 +40,10 @@ router.post('/heroku/release', (req, res) => {
                                 inline: true
                             },
                             {
-                                name: 'Status',
-                                value: `\`\`\`\n${data.status}\n\`\`\``,
+                                name: 'Commit',
+                                value: `\`\`\`\n[${data.slug.commit}]\n${data.slug.commit_description}\n\`\`\``,
                                 inline: true
-                            }
+                            },
                         ],
                         timestamp: new Date(created_at),
                         footer: {
