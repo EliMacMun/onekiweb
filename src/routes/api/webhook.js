@@ -27,7 +27,7 @@ router.post('/heroku/release', (req, res) => {
                         fields: [
                             {
                                 name: 'Execute',
-                                value: `\`\`\`\n${data.pstable.web.command}\n\`\`\``,
+                                value: `\`\`\`\n${data.pstable?.web?.command}\n\`\`\``,
                                 inline: true
                             },
                             {
