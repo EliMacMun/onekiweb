@@ -6,6 +6,7 @@ import { webhook } from './api/webhook.js'
 import { notifications } from './api/notifications.js'
 import { moderation } from './api/moderation.js'
 import { commands } from './api/commands.js'    
+import { fake } from './api/fake.js'
 const router = Router()
 
 // COMMANDS
@@ -22,6 +23,9 @@ router.use('/notifications', notifications)
 
 // moderation
 router.use('/moderation', moderation)
+
+// fake
+router.use('/fake', fake)
 
 // fakeDiscordMessage
 router.get('/fakeDiscordMessage', async (req, res) => {
