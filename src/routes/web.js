@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 router.get('/commands', async (req, res) => {
     res.render('commands', {
         user: req.user,
-        commands: cmds
+        commands: []
     })
 })
 
