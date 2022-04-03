@@ -37,7 +37,7 @@ router.post('/heroku/release', (req, res) => {
                             },
                             {
                                 name: 'Version',
-                                value: `\`\`\`\n${version}\n\`\`\``,
+                                value: `\`\`\`\n${data.version}\n\`\`\``,
                                 inline: true
                             },
                             {
