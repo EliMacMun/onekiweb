@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     
     if (!category) res.json(cmd)
     else if (name) res.json(cmd.find(c => c.name === name)??[]) 
-    else res.json(cmd[category])
+    else res.json(cmd.filter(c => c.category === category)) 
 })
 
 router.get('/categories', (req, res) => {
