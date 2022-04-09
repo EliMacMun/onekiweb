@@ -8,7 +8,7 @@ router.get('/discord/message', (req, res) => {
         avatar = 'https://cdn.discordapp.com/avatars/901956486064922624/e7d4737319365eed6d83bd29606e5872.png?size=80', 
         bot, 
         verified, 
-        message = 'Hey, how are you?'
+        message = 'Hey, who are you?'
     } = req.query
     res.render('fake/discord/message', {
         layout: false,
