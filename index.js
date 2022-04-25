@@ -14,7 +14,7 @@ app.prepare().then(() => {
         return handle(req, res)
     })
 
-    const servet = app.listen(port, err => {
+    const server = app.listen(port, err => {
         if (err) throw err
         console.log(`> Ready on http://localhost:${port}`)
     })
