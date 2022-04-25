@@ -1,9 +1,13 @@
 import { Router } from 'express'
 import rgbHex from 'rgb-hex'
+import Axios from 'axios'
 
 const router = Router()
 
-router.get('/discord/message', async (req, res) => {
+router.get('/discord/message', renderMessage)
+router.post('/discord/message', renderMessage)
+
+async function renderMessage(req, res) {
     let { 
         username = 'Oneki', 
         avatar = 'https://cdn.discordapp.com/avatars/901956486064922624/e7d4737319365eed6d83bd29606e5872.png?size=80', 
@@ -23,11 +27,7 @@ router.get('/discord/message', async (req, res) => {
     const emojis = message.match(/&#60;a?:[a-z_]+:\d{18}&#62;/gi)
     console.log(emojis)
     if (emojis) {
-        for (const m of emojis) {
-            const emoji = await fetchEmoji(m.replace(/&#60;a?:/, '').replace('&#62;', ''))
-            // console.log(emoji)
-        //     if (emoji && !emoji.message) message = message.replace(m, `:${emoji.name}:`)
-        }
+        for (const m of emojis) message = message.replace(m, `<span class="emojiContainer-2XKwXX" role="button" tabindex="0"><img aria-label=":pikachu:" src="https://cdn.discordapp.com/emojis/${m.replace(/&#60;a?:[a-z_]+:/, '').replace('&#62;', '')}.webp?size=44&amp;quality=lossless" alt="${m.replace(/&#60;a?/, '').replace(/\d{18}>/, '')}" draggable="false" class="emoji" data-type="emoji" data-id="885693516599144488"></span>`)
     }
     res.render('fake/discord/message', {
         layout: false,
@@ -37,7 +37,7 @@ router.get('/discord/message', async (req, res) => {
         color: processColor(color),
         bot: Object.values(req.query).length > 0 ? isBotVerified(bot, verified) : isBotVerified(true, true),
     })
-})
+}
 
 function isBotVerified(bot, verified) {
     if (typeof bot === 'undefined') return ''
@@ -74,22 +74,6 @@ async function fetchUser(id) {
     })
     if (res.ok) return res.json()
     else return { message: 'User not found' }
-}
-
-/**
- * 
- * @param {string} id 
- * @returns {Promise<object>}
- */
-async function fetchEmoji(id) {
-    const res = await fetch(`https://cdn.discordapp.com/emojis/${id}ssdfsdf.png}`, {
-        headers: {
-            'Authorization': 'Bot ' + process.env.TOKEN_DISCORD,
-        }
-    })
-    console.log(res.status);
-    if (res.status != 200) return { message: 'Emoji not found' }
-    else return { url: `https://cdn.discordapp.com/emojis/${id}.png`}
 }
 
 export { router as fake }
