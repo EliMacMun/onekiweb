@@ -3,8 +3,7 @@ const router = Router()
 
 router.post('/heroku/release', (req, res) => {
     const { webhook_metadata, action, actor, created_at, id, data } = req.body
-    console.log('heroku release', id)
-    console.log('event:', webhook_metadata.event);
+    if (webhook_metadata?.event?.include !== 'release') return res.sendStatus(200)
     fetch(
         process.env.HEROKU_WEBHOOK,
         {
