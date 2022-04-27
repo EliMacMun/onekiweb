@@ -18,3 +18,4 @@ jobs:
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           branch: main
           healthcheck: https://oneki.herokuapp.com/healt
+          rollbackonhealthcheckfailed: true
