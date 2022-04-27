@@ -2,8 +2,9 @@ import { Router } from 'express'
 const router = Router()
 
 router.post('/heroku/release', (req, res) => {
-    const { webhook_metadata, action, actor, created_at, id, data, version } = req.body
+    const { webhook_metadata, action, actor, created_at, id, data } = req.body
     console.log('heroku release', id)
+    console.log(webhook_metadata.event.include);
     fetch(
         'https://canary.discord.com/api/webhooks/891458927479377930/ZiTKdJkpIuyd1x3E3IDVMn1ecd7aHGsd-lPb89P-KDJ5RoafxLGUKc6ReptDB3iCuRhS',
         {
