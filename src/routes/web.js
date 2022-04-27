@@ -9,6 +9,10 @@ router.get('/', async (req, res) => {
     })
 })
 
+router.get('/health', async (req, res) => {
+    res.send('OK')
+})
+
 router.get('/commands', async (req, res) => {
     res.render('commands', {
         user: req.user,
