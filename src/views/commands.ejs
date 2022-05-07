@@ -1,29 +1,27 @@
+<head>
+    <link rel="stylesheet" href="css/commands.css">
+</head>
 <div class="commands-container">
-    <div class="commands-container-list">
-        <h2 class="commands-container-list-title">Categorias</h2>
-        <ul class="commands-container-list-ul">
-            <%const categoires = commands.map(c=>c.category).filter((e, i, a)=>a.indexOf(e)===i)%>
-            <li onclick="toggleCategories(this)"><a><%-categoires.join('</a></li>\n<li onclick="toggleCategories(this)"><a>')%></a></li>
-        </ul>
-    </div>
-    <div class="commands-container-info">
-        <div class="commands-container-command-name">
-            <h2 id="category-name"><%=categoires[0]%></h2>
-            <div class="commands-container-command-name_button">
-                <span onclick="activeBar()" class="material-icons md-32">reorder</span>
-            </div>
+    <div class="commands-container_list">
+        <div class="commands-container_list-title">
+            <h2>Comandos</h2>
         </div>
-        <div class="commands-container-info-content">
-            <div id="cards">
-                <% commands.filter(c=>c.category == categoires[0]).forEach(function(command) { %>
-                <div class="cards">
-                    <h4><%=command.type=='slash'?'/':'>'%><%=command.name%></h4>
-                    <p><%=command.description%></p>
-                    <div class="cards-content card-active">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod eius debitis libero maiores beatae quidem delectus eligendi. Perferendis facere itaque necessitatibus, quas dolor fugit quod architecto officia provident nisi autem!</p>
-                    </div>
+        <div class="categories_list">
+            <ul>
+                <li>si</li>
+            </ul>
+        </div>
+    </div>
+    <div class="commans-container_content">
+        <div class="commans-container_content-title">
+            <h2>Category title</h2>
+        </div>
+        <div class="commans-container_content-commands">
+            <div class="command-box">
+                <div class="command-attrs">
+                    <h4>/command</h4>
+                    <p>command desc</p>
                 </div>
-                <% }); %>
             </div>
         </div>
     </div>

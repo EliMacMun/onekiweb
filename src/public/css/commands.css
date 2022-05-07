@@ -1,0 +1,65 @@
+body {
+  background-color: #A614FF;
+  overflow-y: hidden; }
+
+.global_nav-bar-container {
+  position: relative; }
+
+.commands-container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw; }
+  .commands-container .commands-container_list {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    height: 100vh;
+    width: 20%;
+    /*min-width: 69px;*/ }
+    .commands-container .commands-container_list .commands-container_list-title h2 {
+      margin: 20px 10%; }
+    .commands-container .commands-container_list .categories_list {
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.1); }
+      .commands-container .commands-container_list .categories_list ul {
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 20px 0;
+        margin: 0;
+        font-size: 20px; }
+        .commands-container .commands-container_list .categories_list ul li {
+          list-style: inside none disclosure-closed; }
+  .commands-container .commans-container_content {
+    display: flex;
+    flex-direction: column;
+    width: 80%; }
+    .commands-container .commans-container_content .commans-container_content-title {
+      width: 100%;
+      text-align: center; }
+    .commands-container .commans-container_content .commans-container_content-commands {
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 0;
+      height: calc(100vh - 19%);
+      overflow-y: auto; }
+      .commands-container .commans-container_content .commans-container_content-commands .command-box {
+        display: flex;
+        background-color: rgba(143, 0, 255, 0.6);
+        width: 80%;
+        padding: 15px 35px;
+        margin-bottom: 46px;
+        border-radius: 19px;
+        box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3); }
+        .commands-container .commans-container_content .commans-container_content-commands .command-box .command-attrs {
+          display: flex;
+          align-items: center; }
+          .commands-container .commans-container_content .commans-container_content-commands .command-box .command-attrs h4 {
+            font-size: 25px;
+            font-weight: 900;
+            margin: 0 20px 0 0; }
+          .commands-container .commans-container_content .commans-container_content-commands .command-box .command-attrs p {
+            margin: 0; }
+
+/*# sourceMappingURL=commands.css.map */
