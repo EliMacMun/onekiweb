@@ -12,14 +12,6 @@ jobs:
         with:
           fetch-depth: 0
       - run: ls
-      - uses: devtomio/action-railway@v1.1.4
-        whit: 
-          railway_token: ${{ secrets.RAILWAY_TOKEN }}
-      # - uses: akhileshns/heroku-deploy@v3.12.12
+      # - uses: devtomio/action-railway@v1.1.4
       #   with:
-      #     heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-      #     heroku_app_name: oneki
-      #     heroku_email: ${{ secrets.HEROKU_EMAIL }}
-      #     branch: main
-      #     healthcheck: https://oneki.herokuapp.com/health
-      #     rollbackonhealthcheckfailed: true
+      #     railway_token: ${{ secrets.RAILWAY_TOKEN }}
