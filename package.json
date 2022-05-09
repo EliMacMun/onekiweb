@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/EliMacMun/onekiweb#readme",
   "engines": {
-    "node": "18"
+    "node": "18.1.0"
   },
   "eslintConfig": {
     "extends": "./node_modules/standard/eslintrc.json",

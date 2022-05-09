@@ -12,6 +12,6 @@ jobs:
         with:
           fetch-depth: 0
       - run: ls
-      - uses: devtomio/action-railway@v1.1.4
+      # - uses: devtomio/action-railway@v1.1.4
       #   with:
       #     railway_token: ${{ secrets.RAILWAY_TOKEN }}
