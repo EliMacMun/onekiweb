@@ -17,6 +17,7 @@
     "firebase-admin": "10.0.2",
     "hex-rgb": "^5.0.0",
     "morgan": "^1.10.0",
+    "node-fetch": "^3.2.4",
     "node-sass": "^7.0.1",
     "passport": "^0.4.1",
     "passport-discord": "^0.1.4",
@@ -30,8 +31,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --experimental-fetch src/index",
-    "dev": "nodemon --experimental-fetch src/index",
+    "start": "node src/index",
+    "dev": "nodemon src/index",
     "sass": "node-sass --watch /src/public/scss/main.scss -o /src/public/css/global-style.css"
   },
   "repository": {
