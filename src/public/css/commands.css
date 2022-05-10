@@ -5,8 +5,14 @@ body {
 .global_nav-bar-container {
   position: relative; }
 
+.textojasja {
+  width: 100vw;
+  font-size: 50px;
+  color: #fff;
+  text-align: center; }
+
 .commands-container {
-  display: flex;
+  display: none;
   flex-direction: row;
   width: 100vw; }
   .commands-container .commands-container_list {
@@ -23,12 +29,14 @@ body {
       height: 100%;
       background-color: rgba(0, 0, 0, 0.1); }
       .commands-container .commands-container_list .categories_list ul {
-        background-color: rgba(0, 0, 0, 0.2);
-        padding: 20px 0;
+        padding: 0;
         margin: 0;
         font-size: 20px; }
         .commands-container .commands-container_list .categories_list ul li {
-          list-style: inside none disclosure-closed; }
+          list-style: inside none disclosure-closed;
+          padding: 1rem; }
+        .commands-container .commands-container_list .categories_list ul li#selected {
+          background-color: rgba(0, 0, 0, 0.1); }
   .commands-container .commans-container_content {
     display: flex;
     flex-direction: column;
@@ -46,6 +54,7 @@ body {
       overflow-y: auto; }
       .commands-container .commans-container_content .commans-container_content-commands .command-box {
         display: flex;
+        flex-direction: column;
         background-color: rgba(143, 0, 255, 0.6);
         width: 80%;
         padding: 15px 35px;
@@ -54,12 +63,26 @@ body {
         box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3); }
         .commands-container .commans-container_content .commans-container_content-commands .command-box .command-attrs {
           display: flex;
-          align-items: center; }
-          .commands-container .commans-container_content .commans-container_content-commands .command-box .command-attrs h4 {
-            font-size: 25px;
-            font-weight: 900;
-            margin: 0 20px 0 0; }
-          .commands-container .commans-container_content .commans-container_content-commands .command-box .command-attrs p {
-            margin: 0; }
+          flex-direction: column; }
+          .commands-container .commans-container_content .commans-container_content-commands .command-box .command-attrs .command-attrs_preview {
+            display: flex;
+            align-items: center; }
+            .commands-container .commans-container_content .commans-container_content-commands .command-box .command-attrs .command-attrs_preview h4 {
+              font-size: 25px;
+              font-weight: 900;
+              margin: 0 20px 0 0; }
+            .commands-container .commans-container_content .commans-container_content-commands .command-box .command-attrs .command-attrs_preview p {
+              margin: 0; }
+          .commands-container .commans-container_content .commans-container_content-commands .command-box .command-attrs .command-expanded {
+            display: none; }
+            .commands-container .commans-container_content .commans-container_content-commands .command-box .command-attrs .command-expanded p {
+              font-size: 20px;
+              margin: 12px; }
+              .commands-container .commans-container_content .commans-container_content-commands .command-box .command-attrs .command-expanded p b {
+                font-weight: 900; }
+
+@media screen and (max-width: 942px) {
+  .commands-container .commands-container_list {
+    position: absolute; } }
 
 /*# sourceMappingURL=commands.css.map */

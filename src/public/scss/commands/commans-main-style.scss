@@ -5,9 +5,14 @@ body {
 .global_nav-bar-container {
     position: relative;
 }
-
+.textojasja {
+    width: 100vw;
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+}
 .commands-container {
-    display: flex;
+    display: none;
     flex-direction: row;
     width: 100vw;
     .commands-container_list {
@@ -27,12 +32,15 @@ body {
             height: 100%;
             background-color: rgba(0, 0, 0, 10%);
             ul {
-                background-color: rgba(0, 0, 0, 20%);
-                padding: 20px 0;
+                padding: 0;
                 margin: 0;
                 font-size: 20px;
                 li{
                     list-style: inside none disclosure-closed;;
+                    padding: 1rem;
+                }
+                li#selected{
+                    background-color: rgba(0, 0, 0, 10%);
                 }
             }
         }
@@ -55,6 +63,7 @@ body {
             overflow-y: auto;
             .command-box {
                 display: flex;
+                flex-direction: column;
                 background-color: rgba(143, 0, 255, 60%);
                 width: 80%;
                 padding: 15px 35px;
@@ -63,17 +72,41 @@ body {
                 box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
                 .command-attrs {
                     display: flex;
-                    align-items: center;
-                    h4 {
-                        font-size: 25px;
-                        font-weight: 900;
-                        margin: 0 20px 0 0;
+                    flex-direction: column;
+                    .command-attrs_preview{
+                        display: flex;
+                        align-items: center;
+                        h4 {
+                            font-size: 25px;
+                            font-weight: 900;
+                            margin: 0 20px 0 0;
+                        }
+                        p {
+                            margin: 0;
+                        }
+
                     }
-                    p {
-                        margin: 0;
+                    .command-expanded {
+                        display: none;
+                        p {
+                            font-size: 20px;
+                            margin: 12px;
+                            b {
+                                font-weight: 900;
+                            }
+                        }
                     }
                 }
             }
+        }
+    }
+}
+
+//responsive
+@media screen and (max-width: 942px) {
+    .commands-container{
+        .commands-container_list{
+            position: absolute;
         }
     }
 }

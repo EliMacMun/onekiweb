@@ -1,6 +1,8 @@
 <head>
     <link rel="stylesheet" href="css/commands.css">
 </head>
+
+<p class="textojasja" title="jaja ahi se va a quedar un buen rato">Proximamente</p>
 <div class="commands-container">
     <div class="commands-container_list">
         <div class="commands-container_list-title">
@@ -8,7 +10,9 @@
         </div>
         <div class="categories_list">
             <ul>
-                <li>si</li>
+                <li id="selected">Category</li>
+                <li>Category</li>
+                <li>Category</li>
             </ul>
         </div>
     </div>
@@ -17,10 +21,18 @@
             <h2>Category title</h2>
         </div>
         <div class="commans-container_content-commands">
-            <div class="command-box">
+            <div class="command-box" onclick="showCommandInfo()">
                 <div class="command-attrs">
-                    <h4>/command</h4>
-                    <p>command desc</p>
+                    <div class="command-attrs_preview">
+                        <h4>/command</h4>
+                        <p>command desc</p>
+                    </div>
+                    <!-- comming soon -->
+                    <!-- <div class="command-expanded">
+                        <p><b>Permisos:</b> Lorem ipsum</p>
+                        <p><b>Uso:</b> Lorem ipsum</p>
+                        <p><b>Ejemplo:</b> Lorem ipsum</p>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -48,5 +60,10 @@
     function activeBar() {
         const bar = document.querySelector(".commands-container-list");
         bar.classList.toggle("commands-container-list-active");
+    }
+
+    function showCommandInfo(){
+        const command = document.querySelector('.command-expanded')
+        command.toggleAttribute('display: block')
     }
 </script>

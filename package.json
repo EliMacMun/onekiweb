@@ -30,16 +30,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-    "start": "node --experimental-fetch src/index",
-    "dev": "nodemon --experimental-fetch src/index",
-    "sass": "node-sass --watch /src/public/scss/main.scss -o /src/public/css/global-style.css",
-    "commands-sass": "node-sass --watch src/public/scss/commands/commands-main.scss -o src/public/css/commands.css"
-=======
     "start": "node src/index",
     "dev": "nodemon src/index",
-    "sass": "node-sass --watch /src/public/scss/main.scss -o /src/public/css/global-style.css"
->>>>>>> 6725f67b62cc5c17215ceb340fbe4413900f9d33
+    "sass": "node-sass --watch /src/public/scss/main.scss -o /src/public/css/global-style.css",
+    "commands-sass": "node-sass --watch /src/public/scss/commands/commands-main.scss -o /src/public/css/commands.css"
   },
   "repository": {
     "type": "git",
