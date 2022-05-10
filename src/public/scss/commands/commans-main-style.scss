@@ -1,0 +1,112 @@
+body {
+    background-color: $commands-bg-colour;
+    overflow-y: hidden;
+}
+.global_nav-bar-container {
+    position: relative;
+}
+.textojasja {
+    width: 100vw;
+    font-size: 50px;
+    color: #fff;
+    text-align: center;
+}
+.commands-container {
+    display: none;
+    flex-direction: row;
+    width: 100vw;
+    .commands-container_list {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        position: relative;
+        height: 100vh;
+        width: 20%;
+        /*min-width: 69px;*/
+        .commands-container_list-title{
+            h2 {
+                margin: 20px 10%;
+            }
+        }
+        .categories_list{
+            height: 100%;
+            background-color: rgba(0, 0, 0, 10%);
+            ul {
+                padding: 0;
+                margin: 0;
+                font-size: 20px;
+                li{
+                    list-style: inside none disclosure-closed;;
+                    padding: 1rem;
+                }
+                li#selected{
+                    background-color: rgba(0, 0, 0, 10%);
+                }
+            }
+        }
+    }
+    .commans-container_content {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        .commans-container_content-title {
+            width: 100%;
+            text-align: center;
+        }
+        .commans-container_content-commands {
+            background-color: $commands-content-bg-colour;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 0;
+            height: calc(100vh - 19%);
+            overflow-y: auto;
+            .command-box {
+                display: flex;
+                flex-direction: column;
+                background-color: rgba(143, 0, 255, 60%);
+                width: 80%;
+                padding: 15px 35px;
+                margin-bottom: 46px;
+                border-radius: 19px;
+                box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+                .command-attrs {
+                    display: flex;
+                    flex-direction: column;
+                    .command-attrs_preview{
+                        display: flex;
+                        align-items: center;
+                        h4 {
+                            font-size: 25px;
+                            font-weight: 900;
+                            margin: 0 20px 0 0;
+                        }
+                        p {
+                            margin: 0;
+                        }
+
+                    }
+                    .command-expanded {
+                        display: none;
+                        p {
+                            font-size: 20px;
+                            margin: 12px;
+                            b {
+                                font-weight: 900;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//responsive
+@media screen and (max-width: 942px) {
+    .commands-container{
+        .commands-container_list{
+            position: absolute;
+        }
+    }
+}
