@@ -30,8 +30,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index",
-    "dev": "nodemon src/index",
+    "start": "node --experimental-fetch src/index",
+    "dev": "nodemon --experimental-fetch src/index",
     "sass": "node-sass --watch /src/public/scss/main.scss -o /src/public/css/global-style.css"
   },
   "repository": {
@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/EliMacMun/onekiweb#readme",
   "engines": {
-    "node": "18.1.0"
+    "node": "16.5.0"
   },
   "eslintConfig": {
     "extends": "./node_modules/standard/eslintrc.json",
