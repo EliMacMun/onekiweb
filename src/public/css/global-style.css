@@ -59,7 +59,8 @@ body {
       .global_nav-bar-container .global_nav-bar .global_nav_login img {
         width: 36px;
         height: 36px;
-        order: 1; }
+        order: 1;
+        border-radius: 50%; }
       .global_nav-bar-container .global_nav-bar .global_nav_login .global_nav-mobile_open-menu {
         display: none;
         order: 3;
