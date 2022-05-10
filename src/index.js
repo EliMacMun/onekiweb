@@ -12,6 +12,8 @@ import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 import { WebSocketServer } from 'ws'
+import fetch from 'node-fetch'
+global.fetch = fetch
 
 config()
 const app = express()

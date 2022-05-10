@@ -17,6 +17,7 @@
     "firebase-admin": "10.0.2",
     "hex-rgb": "^5.0.0",
     "morgan": "^1.10.0",
+    "node-fetch": "^3.2.4",
     "node-sass": "^7.0.1",
     "passport": "^0.4.1",
     "passport-discord": "^0.1.4",
@@ -47,7 +48,7 @@
   },
   "homepage": "https://github.com/EliMacMun/onekiweb#readme",
   "engines": {
-    "node": "18"
+    "node": "16.5.0"
   },
   "eslintConfig": {
     "extends": "./node_modules/standard/eslintrc.json",
