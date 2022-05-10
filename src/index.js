@@ -3,11 +3,11 @@ import { cert, initializeApp } from 'firebase-admin/app'
 import { getFirestore } from 'firebase-admin/firestore'
 import YouTubeNotifier from 'youtube-notification'
 import eejsl from 'express-ejs-layouts'
-import session from 'express-session' 
+import session from 'express-session'
 import { join, resolve } from 'path'
 import flash from 'connect-flash'
 import { config } from 'dotenv'
-import passport from 'passport'
+import passport from './passport.js'
 import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
@@ -21,11 +21,12 @@ const app = express()
 /** @type import('firebase-admin/firestore').Firestore */
 global.db = getFirestore(initializeApp({ credential: cert(JSON.parse(process.env.FIREBASE_TOKEN)) }))
 
-global.bot = await fetch('https://discordapp.com/api/v6/users/@me', {
+global.bot = await fetch('https://discordapp.com/api/v9/users/@me', {
     headers: {
         Authorization: `Bot ${process.env.DISCORD_TOKEN}`
     }
 }).then(res => res.json())
+console.log(global.bot)
 //express settings
 app.set('port', process.env.PORT || 3000)
 app.set('views', join(resolve(process.cwd()), 'src', 'views'))
