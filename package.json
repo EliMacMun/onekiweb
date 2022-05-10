@@ -54,5 +54,8 @@
   "eslintConfig": {
     "extends": "./node_modules/standard/eslintrc.json",
     "tabWidth": 4
+  },
+  "prettier": {
+    "tabWidth": 4
   }
 }
