@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import cmd from '../../commands/en.json' assert { type: 'json' }
-
+// import cmd from '../../commands/en.json' assert { type: 'json' }
+const cmd = []
 const router = Router()
 
 router.get('/', (req, res) => {
