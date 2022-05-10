@@ -11,12 +11,6 @@ passport.deserializeUser((obj, done) => {
     done(null, obj);
 });
 
-console.log({
-    clientID: BigInt(process.env.CLIENT_ID),
-    clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: process.env.REDIRECT_URL   
-})
-
 passport.use(new Strategy({
     clientID: BigInt(process.env.CLIENT_ID, 10),
     clientSecret: process.env.CLIENT_SECRET,
@@ -28,11 +22,6 @@ passport.use(new Strategy({
     // callbackURL: process.env.REDIRECT_URL,
     // scope: ["identify"]
 }, (accesToken, refreshToken, profile, cb) => {
-    console.log({
-        accesToken,
-        refreshToken,
-        profile
-    })
     process.nextTick(() => {
         return cb(null, profile)
     });

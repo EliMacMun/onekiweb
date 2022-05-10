@@ -26,7 +26,6 @@ global.bot = await fetch('https://discordapp.com/api/v9/users/@me', {
         Authorization: `Bot ${process.env.DISCORD_TOKEN}`
     }
 }).then(res => res.json())
-console.log(global.bot)
 //express settings
 app.set('port', process.env.PORT || 3000)
 app.set('views', join(resolve(process.cwd()), 'src', 'views'))

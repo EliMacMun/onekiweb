@@ -25,7 +25,6 @@ async function renderMessage(req, res) {
         }
     }
     const emojis = message.match(/&#60;a?:[a-z_]+:\d{18}&#62;/gi)
-    console.log(emojis)
     if (emojis) {
         for (const m of emojis) message = message.replace(m, `<span class="emojiContainer-2XKwXX" role="button" tabindex="0"><img aria-label=":pikachu:" src="https://cdn.discordapp.com/emojis/${m.replace(/&#60;a?:[a-z_]+:/, '').replace('&#62;', '')}.webp?size=44&amp;quality=lossless" alt="${m.replace(/&#60;a?/, '').replace(/\d{18}>/, '')}" draggable="false" class="emoji" data-type="emoji" data-id="885693516599144488"></span>`)
     }
@@ -51,7 +50,6 @@ function isBotVerified(bot, verified) {
  * @param {string} color 
  */
 function processColor(color) {
-    console.log('color', color);
     if ((/(?:#|0x)(?:[a-f0-9]{3}|[a-f0-9]{6})\b|(?:rgb|hsl)a?\([^\)]*\)/i)) {
         if (color.startsWith('#')) return color.slice(1)
         else if(color.startsWith('0x')) return color.slice(2)

@@ -29,7 +29,6 @@ router.use('/fake', fake)
 
 // fakeDiscordMessage
 router.get('/fakeDiscordMessage', async (req, res) => {
-    // console.log(req.query);
     let text = req.query.text ?? ''
     if (req.query.mentions)
         for (const match of text.match(/&#60;@!?\d{17,19}&#62;/g) ?? [])
