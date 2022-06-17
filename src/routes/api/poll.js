@@ -1,5 +1,5 @@
 import { Router } from 'express'
-const router = Router();
+const router = Router()
 
 router.get('/:id', (req, res) => {
     res.render('poll', {
@@ -7,4 +7,4 @@ router.get('/:id', (req, res) => {
     })
 })
 
-export { router as poll }
+export default router

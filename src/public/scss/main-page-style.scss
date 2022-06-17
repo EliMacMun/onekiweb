@@ -25,30 +25,30 @@
                 font-style: normal;
                 font-weight: normal;
                 font-size: 29px;
-                line-height: 35px;         
+                line-height: 35px;
                 color: rgba(255, 255, 255, 0.8);
                 text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.25);
             }
             .bot-attrs_invite-button {
                 padding: 20px 96px;
-                background: linear-gradient(93.58deg, #DE14FF 0%, #FF2ED1 100%);
+                background: linear-gradient(93.58deg, #de14ff 0%, #ff2ed1 100%);
                 box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
                 border-radius: 16px;
                 border: none;
-                font-family: 'Rubik', sans-serif;;
+                font-family: 'Rubik', sans-serif;
                 font-style: normal;
                 font-weight: normal;
                 font-size: 36px;
-                color: #F3E8FF;
+                color: #f3e8ff;
                 transition: background 0.3s, box-shadow 0.3s;
             }
             .bot-attrs_invite-button:hover {
-                background: linear-gradient(93.74deg, #DE14FF 50%, #FF2ED1 100%);
+                background: linear-gradient(93.74deg, #de14ff 50%, #ff2ed1 100%);
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
             }
             .hidenimg {
-            display: none
-            } 
+                display: none;
+            }
         }
         .bot-profile-picture {
             border-radius: 50%;
@@ -63,8 +63,8 @@
 //responsive
 @media screen and (max-width: 1260px) {
     .main {
-        .main-page_content-container{
-            .bot-attrs{
+        .main-page_content-container {
+            .bot-attrs {
                 h2 {
                     font-size: 151px;
                 }
@@ -86,8 +86,8 @@
 }
 @media screen and (max-width: 1039px) {
     .main {
-        .main-page_content-container{
-            .bot-attrs{
+        .main-page_content-container {
+            .bot-attrs {
                 h2 {
                     font-size: 125px;
                 }

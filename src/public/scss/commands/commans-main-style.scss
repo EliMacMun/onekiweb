@@ -23,23 +23,23 @@ body {
         height: 100vh;
         width: 20%;
         /*min-width: 69px;*/
-        .commands-container_list-title{
+        .commands-container_list-title {
             h2 {
                 margin: 20px 10%;
             }
         }
-        .categories_list{
+        .categories_list {
             height: 100%;
             background-color: rgba(0, 0, 0, 10%);
             ul {
                 padding: 0;
                 margin: 0;
                 font-size: 20px;
-                li{
-                    list-style: inside none disclosure-closed;;
+                li {
+                    list-style: inside none disclosure-closed;
                     padding: 1rem;
                 }
-                li#selected{
+                li#selected {
                     background-color: rgba(0, 0, 0, 10%);
                 }
             }
@@ -73,7 +73,7 @@ body {
                 .command-attrs {
                     display: flex;
                     flex-direction: column;
-                    .command-attrs_preview{
+                    .command-attrs_preview {
                         display: flex;
                         align-items: center;
                         h4 {
@@ -84,7 +84,6 @@ body {
                         p {
                             margin: 0;
                         }
-
                     }
                     .command-expanded {
                         display: none;
@@ -104,8 +103,8 @@ body {
 
 //responsive
 @media screen and (max-width: 942px) {
-    .commands-container{
-        .commands-container_list{
+    .commands-container {
+        .commands-container_list {
             position: absolute;
         }
     }
