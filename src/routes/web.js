@@ -1,9 +1,9 @@
 import passport from '../passport.js'
 import { Router } from 'express'
+
 const router = Router()
 
 router.get('/', async (req, res) => {
-    // if(!userbot) await getUserbot();
     res.render('index', {
         user: req.user
     })

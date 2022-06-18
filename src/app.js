@@ -8,36 +8,34 @@ import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
 
-export default function serverApp() {
-    const app = express()
+const app = express()
 
-    app.set('port', process.env.PORT || 3000)
-    app.set('views', join(resolve(process.cwd()), 'src', 'views'))
-    app.set('view engine', 'ejs')
-    app.use(eejsl)
-    app.set('layout', 'layouts/layout')
+app.set('port', process.env.PORT || 3000)
+app.set('views', join(resolve(process.cwd()), 'src', 'views'))
+app.set('view engine', 'ejs')
+app.use(eejsl)
+app.set('layout', 'layouts/layout')
 
-    //middlewares
-    app.use(cors())
-    app.use(morgan('dev'))
-    app.use(express.json())
-    app.use(express.urlencoded({ extended: false }))
-    app.use(express.static(join(resolve(process.cwd()), 'src', 'public')))
+//middlewares
+app.use(cors())
+app.use(morgan('dev'))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
+app.use(express.static(join(resolve(process.cwd()), 'src', 'public')))
 
-    app.use(flash())
-    app.use(
-        session({
-            secret: 'thisIsASecretShhh',
-            resave: false,
-            saveUninitialized: false
-        })
-    )
-    app.use(passport.initialize())
-    app.use(passport.session())
-
-    const server = app.listen(app.get('port'), () => {
-        console.log(`listen on http://localhost:${app.get('port')}`)
+app.use(flash())
+app.use(
+    session({
+        secret: 'thisIsASecretShhh',
+        resave: false,
+        saveUninitialized: false
     })
+)
+app.use(passport.initialize())
+app.use(passport.session())
 
-    return { server, app }
-}
+const server = app.listen(app.get('port'), () => {
+    console.log(`listen on http://localhost:${app.get('port')}`)
+})
+
+export default { server, app }
