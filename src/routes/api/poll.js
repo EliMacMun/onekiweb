@@ -1,6 +1,6 @@
 import { Router } from 'express'
 const router = Router()
-import db from '../db.js'
+import db from '../../db.js'
 
 router.get('/:id', async (req, res) => {
     const snap = await db.collection('polls').doc(req.params.id).get()
