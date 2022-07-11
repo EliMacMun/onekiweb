@@ -20,6 +20,13 @@ router.get('/commands', async (req, res) => {
     })
 })
 
+router.get('/poll:id', async (req, res) => {
+    res.render('poll', {
+        user: req.user,
+        id: req.params.id
+    })
+})
+
 router.get('/login', passport.authenticate('discord', { failureRedirect: '/' }), async (req, res) => {
     res.redirect(req.flash('redi')[0] ?? '/')
 })
