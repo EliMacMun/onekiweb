@@ -14,3 +14,5 @@ router.get('/:id/polls', async (req, res) => {
     if (snap.empty) res.status(200).json([])
     else res.status(200).json(snap.docs.map(d => d.data()))
 })
+
+export default router
