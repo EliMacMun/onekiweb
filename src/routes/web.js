@@ -20,7 +20,7 @@ router.get('/commands', async (req, res) => {
     })
 })
 
-router.get('/poll:id', async (req, res) => {
+router.get('/poll/:id', async (req, res) => {
     res.render('poll', {
         user: req.user,
         id: req.params.id
