@@ -3,6 +3,7 @@
 import notifications from './api/notifications.js'
 import moderation from './api/moderation.js'
 import webhook from './api/webhook.js'
+import discord from './api/discord.js'
 import server from './api/server.js'
 import poll from './api/poll.js'
 import fake from './api/fake.js'
@@ -26,5 +27,7 @@ router.use('/moderation', moderation)
 router.use('/fake', fake)
 
 router.use('/server', server)
+
+router.use('/discord', discord)
 
 export default router
