@@ -1,11 +1,12 @@
 // noinspection JSUnresolvedVariable
 
-import { Router } from 'express'
-import poll from './api/poll.js'
-import webhook from './api/webhook.js'
 import notifications from './api/notifications.js'
 import moderation from './api/moderation.js'
+import webhook from './api/webhook.js'
+import server from './api/server.js'
+import poll from './api/poll.js'
 import fake from './api/fake.js'
+import { Router } from 'express'
 
 const router = Router()
 
@@ -23,5 +24,7 @@ router.use('/moderation', moderation)
 
 // fake
 router.use('/fake', fake)
+
+router.use('/server', server)
 
 export default router
