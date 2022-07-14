@@ -8,7 +8,7 @@ export async function actualState() {
     })
         .then(res => res.json())
         .catch(console.error)
-    return r[0].content
+    return r[0]?.content
 }
 
 export async function setState(state) {
