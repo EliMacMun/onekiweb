@@ -21,10 +21,25 @@ router.get('/commands', async (req, res) => {
 })
 
 router.get('/poll/:id', async (req, res) => {
-    res.render('poll', {
-        user: req.user,
-        id: req.params.id
+    const snap = await db.collection('polls').doc(req.params.id).get()
+    if (!snap.exists) res.status(404).send('Poll Not found')
+    const author = await fetch(`https://discord.com/api/users/${req.params.id}`, {
+        headers: {
+            Authorization: `Bot ${process.env.DISCORD_TOKEN}`,
+            'Content-Type': 'application/json'
+        }
     })
+        .then(response => response.json())
+        .catch(err => res.status(500).send(err))
+    if (author)
+        res.render('poll', {
+            user: req.user,
+            poll: {
+                ...snap.data(),
+                id: snap.id,
+                author
+            }
+        })
 })
 
 router.get('/login', passport.authenticate('discord', { failureRedirect: '/' }), async (req, res) => {
