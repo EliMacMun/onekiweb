@@ -1,5 +1,7 @@
 import { Router } from 'express'
 import rgbHex from 'rgb-hex'
+import { config } from 'dotenv'
+config()
 
 const router = Router()
 
@@ -17,18 +19,14 @@ async function renderMessage(req, res) {
     } = req.query
     message = message.replace(/</gi, '&#60;').replace(/>/gi, '&#62;')
 
-    const users = message.match(/&#60;@!?\d{18}&#62;/gi)
+    const users = message.match(/&#60;@!?\d{18,19}&#62;/gi)
     if (users)
         for (const m of users) {
             const user = await fetchUser(m.replace(/&#60;@!?/, '').replace('&#62;', ''))
-            if (user && !user.message)
-                message = message.replace(
-                    m,
-                    `<span class="mention wrapper-1ZcZW- mention interactive" aria-controls="popout_558" aria-expanded="false" tabindex="0" role="button">@${user.username}</span>`
-                )
+            message = message.replace(m, `<span class="wrapper-1ZcZW-">@${user.username}</span>`)
         }
 
-    const emojis = message.match(/&#60;a?:[a-z_]+:\d{18}&#62;/gi)
+    const emojis = message.match(/&#60;a?:[a-z_]+:\d{18,19}&#62;/gi)
     if (emojis)
         for (const m of emojis)
             message = message.replace(
@@ -84,13 +82,16 @@ function processColor(color) {
  * @returns {Promise<object>}
  */
 async function fetchUser(id) {
+    console.log(id)
     const res = await fetch(`https://discord.com/api/v9/users/${id}`, {
         headers: {
-            Authorization: 'Bot ' + process.env.TOKEN_DISCORD
+            Authorization: `Bot ${process.env.DISCORD_TOKEN}`,
+            'Content-Type': 'application/json'
         }
     })
+    console.log(res.statusText)
     if (res.ok) return res.json()
-    else return { message: 'User not found' }
+    else return { message: 'User not found', username: 'Usuario desconocido' }
 }
 
 export default router
