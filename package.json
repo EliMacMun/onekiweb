@@ -26,6 +26,7 @@
         "youtube-notification": "1.1.0"
     },
     "devDependencies": {
+        "@types/node": "^18.6.4",
         "eslint": "8.15.0",
         "nodemon": "^2.0.16"
     },
