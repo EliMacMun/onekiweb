@@ -89,7 +89,6 @@ async function fetchUser(id) {
             'Content-Type': 'application/json'
         }
     })
-    console.log(res.statusText)
     if (res.ok) return res.json()
     else return { message: 'User not found', username: 'Usuario desconocido' }
 }
